@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:installLocation="auto" package="my.catgame" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="false"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:maxSdkVersion="28" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera2" android:required="false"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <queries>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice"/>
+        </intent>
+        <intent>
+            <action android:name="com.huawei.hms.core"/>
+        </intent>
+        <package android:name="com.huawei.hff"/>
+        <package android:name="com.huawei.hms"/>
+        <package android:name="com.huawei.hwid"/>
+    </queries>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher" android:label="CATGAME" android:largeHeap="true" android:name="org.catrobat.catroid.CatroidApplication" android:requestLegacyExternalStorage="false" android:supportsRtl="true" android:theme="@style/Catroid" android:usesCleartextTraffic="true">
+        <activity android:name="org.catrobat.catroid.ui.SettingsActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="org.catrobat.catroid.ui.MainMenuActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="share.catrob.at" android:pathPattern="/.*/project/.*" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="ext" android:pathPrefix="/catrobat.com:catroid" android:scheme="vnd.android.nfc"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.catrobat.catroid.ui.MarketingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="org.catrobat.catroid.ui.NfcTagsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="org.catrobat.catroid.ui.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name="org.catrobat.catroid.ui.ProjectUploadActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/stage" android:name="org.catrobat.catroid.stage.StageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+        <activity android:exported="true" android:name="org.catrobat.catroid.ui.ProjectListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter android:icon="@mipmap/ic_launcher" android:label="Import Catrobat Project">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.catrobat"/>
+            </intent-filter>
+            <intent-filter android:icon="@mipmap/ic_launcher" android:label="Import Catrobat Project">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="application/zip"/>
+                <data android:mimeType="application/x-zip"/>
+                <data android:mimeType="application/octet-stream"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.catrobat.catroid.ui.ProjectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="org.catrobat.catroid.ui.SpriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:name="org.catrobat.catroid.ui.SignInActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="org.catrobat.catroid.ui.recyclerview.backpack.BackpackActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="org.catrobat.catroid.ui.recyclerview.backpack.ActorAndObjectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="org.catrobat.catroid.ui.ScratchConverterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name="org.catrobat.catroid.ui.ScratchProgramDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:label="@string/soundrecorder_name" android:name="org.catrobat.catroid.soundrecorder.SoundRecorderActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="org.catrobat.catroid.visualplacement.VisualPlacementActivity"/>
+        <activity android:icon="@drawable/ic_pocketmusic" android:label="@string/add_sound_music" android:name="org.catrobat.catroid.pocketmusic.PocketMusicActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:name="org.catrobat.catroid.bluetooth.ConnectBluetoothDeviceActivity"/>
+        <activity android:name="org.catrobat.catroid.ui.filepicker.FilePickerActivity"/>
+        <service android:foregroundServiceType="dataSync" android:name="org.catrobat.catroid.transfers.project.ProjectUploadService"/>
+        <service android:foregroundServiceType="dataSync" android:name="org.catrobat.catroid.transfers.project.ProjectDownloadService"/>
+        <service android:name="org.catrobat.catroid.transfers.MediaDownloadService"/>
+        <service android:name="org.catrobat.catroid.utils.notifications.StatusBarNotificationManager$NotificationActionService"/>
+        <service android:name="org.catrobat.catroid.cast.CastService"/>
+        <provider android:authorities="my.catgame.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="my.catgame.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="org.catrobat.paintroid.MyProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <activity android:exported="false" android:name="org.catrobat.paintroid.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/PocketPaintSplashTheme"/>
+        <activity android:exported="true" android:name="org.catrobat.paintroid.MainActivity" android:theme="@style/PocketPaintSplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:scheme="file"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.ora"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:mimeType="application/zip"/>
+                <data android:mimeType="application/octet-stream"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="org.catrobat.paintroid.colorpicker.ColorPickerPreviewActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"/>
+        <provider android:authorities="my.catgame.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:directBootAware="false" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:name="androidx.work.impl.foreground.SystemForegroundService"/>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="false" android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"/>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="false" android:exported="false" android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-voice-tts" android:value="ml-computer-voice-tts:3.7.0.303"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-voice-tts:huawei_module_mlkit_tts_eagle" android:value="3"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-voice-tts:huawei_module_mlkit_tts_bee" android:value="3"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-voice-tts:huawei_module_mlkit_tts_fly" android:value="1"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-vision:huawei_module_mlkit_langdetect" android:value="2"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:mlkitlanguagedetect" android:value="ml-languagedetect:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-vision:huawei_module_mlkit_face" android:value="6"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-face" android:value="ml-computer-vision-face:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-vision:huawei_module_mlkit_ocr" android:value="5"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-ocr" android:value="ml-computer-vision-ocr:3.7.0.302"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-cloud" android:value="ml-computer-vision:3.7.0.302"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.objects.defaults.internal.DefaultObjectsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.nl.languageid.LanguageIdRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.pose.internal.PoseRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.vkp.VkpRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.huawei.hms.mlplugin.asr.MLAsrCaptureActivity" android:theme="@style/mlkitAsrCaptureActivityTheme"/>
+        <meta-data android:name="com.huawei.hms:ml-computer-voice-asr-plugin" android:value="ml-computer-voice-asr-plugin:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms:ml-computer-voice-asr" android:value="ml-computer-voice-asr:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-model-download" android:value="ml-computer-model-download:3.7.0.302"/>
+        <provider android:authorities="my.catgame.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <meta-data android:name="com.huawei.hms:ml-computer-voice-asr-sdk" android:value="ml-computer-voice-asr-sdk:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:ml-computer-vision:huawei_module_mlkit_skeleton" android:value="3"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-skeleton" android:value="ml-computer-vision-skeleton:3.7.0.301"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-base" android:value="ml-computer-vision-base:3.7.0.302"/>
+        <provider android:authorities="my.catgame.MLInitializerProvider" android:exported="false" android:name="com.huawei.hms.mlsdk.common.provider.MLInitializerProvider"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-ha-inner" android:value="ml-computer-ha-inner:3.7.0.302"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:base" android:value="base:6.6.0.300"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:base:hmscore" android:value="1"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <provider android:authorities="my.catgame.mlkitinitprovider" android:exported="false" android:initOrder="99" android:name="com.google.mlkit.common.internal.MlKitInitProvider"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="my.catgame.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-net" android:value="ml-computer-net:3.7.0.302"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-dynamic" android:value="ml-computer-dynamic:3.7.0.302"/>
+        <meta-data android:name="availableLoaded" android:value="yes"/>
+        <activity android:configChanges="fontScale|layoutDirection|locale|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:hardwareAccelerated="true" android:name="com.huawei.hms.activity.BridgeActivity" android:screenOrientation="behind" android:theme="@style/Base_Translucent">
+            <meta-data android:name="hwc-theme" android:value="androidhwext:style/Theme.Emui.Translucent"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.huawei.hms.activity.EnableServiceActivity"/>
+        <provider android:authorities="my.catgame.AGCInitializeProvider" android:exported="false" android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"/>
+        <service android:exported="false" android:name="com.huawei.agconnect.core.ServiceDiscovery"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:ml-computer-vision-inner" android:value="ml-computer-vision-inner:3.7.0.302"/>
+        <meta-data android:name="com.huawei.hms.client.service.name:dynamic-api" android:value="dynamic-api:1.0.20.300"/>
+        <meta-data android:name="com.huawei.hms.min_api_level:dynamic-api:huawei_module_dynamicloader" android:value="8"/>
+    </application>
+</manifest>

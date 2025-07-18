@@ -1,0 +1,46 @@
+[versions]
+agp = "8.10.0"
+apktoolLib = "2.12.0"
+brutJCommon = "2.12.0"
+commonsCli = "1.4"
+commonsIo = "2.19.0"
+commonsLang3 = "3.18.0"
+commonsText = "1.13.1"
+guava = "33.4.8-android"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.1"
+material = "1.12.0"
+activity = "1.8.0"
+constraintlayout = "2.2.1"
+rxjava = "3.1.5"
+smali = "2.5.2"
+smaliBaksmali = "3.0.9"
+zip4j = "2.11.5"
+
+[libraries]
+apktool-apktool-lib = { module = "org.apktool:apktool-lib", version.ref = "brutJCommon" }
+apktool-lib = { module = "org.jf:apktool-lib", version.ref = "apktoolLib" }
+baksmali = { module = "org.smali:baksmali", version.ref = "smali" }
+brut-j-common = { module = "org.apktool:brut.j.common", version.ref = "brutJCommon" }
+commons-cli = { module = "commons-cli:commons-cli", version.ref = "commonsCli" }
+commons-io = { module = "commons-io:commons-io", version.ref = "commonsIo" }
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonsLang3" }
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commonsText" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+smali = { module = "org.smali:smali", version.ref = "smali" }
+smali-baksmali = { module = "com.android.tools.smali:smali-baksmali", version.ref = "smaliBaksmali" }
+zip4j = { module = "net.lingala.zip4j:zip4j", version.ref = "zip4j" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+

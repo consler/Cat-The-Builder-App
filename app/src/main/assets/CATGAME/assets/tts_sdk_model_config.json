@@ -1,0 +1,298 @@
+{
+  "modelModules": [
+    {
+      "framework": "eagle",
+      "languages": [
+        {
+          "language": "zh-hans",
+          "speakers": [
+            {
+              "modelName": "zh-hans-st-eagle-1",
+              "modelAccuracyLevel": "f16",
+              "language": "zh-hans",
+              "modelSize": 28482154
+            },
+            {
+              "modelName": "zh-hans-st-eagle-2",
+              "modelAccuracyLevel": "f16",
+              "language": "zh-hans",
+              "modelSize": 28509913
+            },
+            {
+              "modelName": "zh-hans-st-eagle-1",
+              "modelAccuracyLevel": "f32",
+              "language": "zh-hans",
+              "modelSize": 11292593
+            },
+            {
+              "modelName": "zh-hans-st-eagle-2",
+              "modelAccuracyLevel": "f32",
+              "language": "zh-hans",
+              "modelSize": 11292593
+            }
+          ]
+        },
+        {
+          "language": "en-us",
+          "speakers": [
+            {
+              "modelName": "en-us-st-eagle-1",
+              "modelAccuracyLevel": "f16",
+              "language": "en-us",
+              "modelSize": 27718111
+            },
+            {
+              "modelName": "en-us-st-eagle-2",
+              "modelAccuracyLevel": "f16",
+              "language": "en-us",
+              "modelSize": 27761810
+            },
+            {
+              "modelName": "en-us-st-eagle-1",
+              "modelAccuracyLevel": "f32",
+              "language": "en-us",
+              "modelSize": 10723289
+            },
+            {
+              "modelName": "en-us-st-eagle-2",
+              "modelAccuracyLevel": "f32",
+              "language": "en-us",
+              "modelSize": 10765090
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "framework": "bee",
+      "languages": [
+        {
+          "language": "en-us",
+          "speakers": [
+            {
+              "modelName": "en-us-st-bee-1",
+              "modelAccuracyLevel": "f16",
+              "language": "en-us",
+              "modelSize": 12421493
+            },
+            {
+              "modelName": "en-us-st-bee-1",
+              "modelAccuracyLevel": "f32",
+              "language": "en-us",
+              "modelSize": 11893441
+            }
+          ]
+        },
+        {
+          "language": "fr-fr",
+          "speakers": [
+            {
+              "modelName": "fr-fr-st-bee-1",
+              "modelAccuracyLevel": "f16",
+              "language": "fr-fr",
+              "modelSize": 12265628
+            },
+            {
+              "modelName": "fr-fr-st-bee-1",
+              "modelAccuracyLevel": "f32",
+              "language": "fr-fr",
+              "modelSize": 11733121
+            }
+          ]
+        },
+        {
+          "language": "es-es",
+          "speakers": [
+            {
+              "modelName": "es-es-st-bee-1",
+              "modelAccuracyLevel": "f16",
+              "language": "es-es",
+              "modelSize": 12531061
+            },
+            {
+              "modelName": "es-es-st-bee-1",
+              "modelAccuracyLevel": "f32",
+              "language": "es-es",
+              "modelSize": 12015737
+            }
+          ]
+        },
+        {
+          "language": "de-de",
+          "speakers": [
+            {
+              "modelName": "de-de-st-bee-1",
+              "modelAccuracyLevel": "f16",
+              "language": "de-de",
+              "modelSize": 12387968
+            },
+            {
+              "modelName": "de-de-st-bee-1",
+              "modelAccuracyLevel": "f32",
+              "language": "de-de",
+              "modelSize": 11835501
+            }
+          ]
+        },
+        {
+          "language": "it-it",
+          "speakers": [
+            {
+              "modelName": "it-it-st-bee-1",
+              "modelAccuracyLevel": "f16",
+              "language": "it-it",
+              "modelSize": 12450258
+            },
+            {
+              "modelName": "it-it-st-bee-1",
+              "modelAccuracyLevel": "f32",
+              "language": "it-it",
+              "modelSize": 11937476
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "framework": "fly",
+      "languages": [
+        {
+          "language": "en-us",
+          "speakers": [
+            {
+              "modelName": "en-us-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "en-us",
+              "modelSize": 5531115
+            },
+            {
+              "modelName": "en-us-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "en-us",
+              "modelSize": 5531115
+            }
+          ]
+        },
+        {
+          "language": "de-de",
+          "speakers": [
+            {
+              "modelName": "de-de-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "de-de",
+              "modelSize": 6531831
+            },
+            {
+              "modelName": "de-de-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "de-de",
+              "modelSize": 6531831
+            }
+          ]
+        },
+        {
+          "language": "ar-ar",
+          "speakers": [
+            {
+              "modelName": "ar-ar-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "ar-ar",
+              "modelSize": 7117197
+            },
+            {
+              "modelName": "ar-ar-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "ar-ar",
+              "modelSize": 7117197
+            }
+          ]
+        },
+        {
+          "language": "fr-fr",
+          "speakers": [
+            {
+              "modelName": "fr-fr-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "fr-fr",
+              "modelSize": 6209627
+            },
+            {
+              "modelName": "fr-fr-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "fr-fr",
+              "modelSize": 6209627
+            }
+          ]
+        },
+        {
+          "language": "it-it",
+          "speakers": [
+            {
+              "modelName": "it-it-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "it-it",
+              "modelSize": 8830681
+            },
+            {
+              "modelName": "it-it-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "it-it",
+              "modelSize": 8830681
+            }
+          ]
+        },
+        {
+          "language": "es-es",
+          "speakers": [
+            {
+              "modelName": "es-es-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "es-es",
+              "modelSize": 6068769
+            },
+            {
+              "modelName": "es-es-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "es-es",
+              "modelSize": 6068769
+            }
+          ]
+        },
+        {
+          "language": "ru-ru",
+          "speakers": [
+            {
+              "modelName": "ru-ru-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "ru-ru",
+              "modelSize": 6943917
+            },
+            {
+              "modelName": "ru-ru-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "ru-ru",
+              "modelSize": 6943917
+            }
+          ]
+        },
+        {
+          "language": "th-th",
+          "speakers": [
+            {
+              "modelName": "th-th-st-fly-1",
+              "modelAccuracyLevel": "f16",
+              "language": "th-th",
+              "modelSize": 10052276
+            },
+            {
+              "modelName": "th-th-st-fly-1",
+              "modelAccuracyLevel": "f32",
+              "language": "th-th",
+              "modelSize": 10052276
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

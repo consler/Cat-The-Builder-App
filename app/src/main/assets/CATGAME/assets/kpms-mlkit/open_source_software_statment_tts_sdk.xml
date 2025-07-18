@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<open-source-software-notice version= "3.3.0.305" update-time="2022-01-14">
+    <item>
+        <software>ml-computer-voice-tts</software>
+        <version>3.3.0.305</version>
+        <copyright-notice>Copyright (c) 2019-present, Huawei, Inc. All rights reserved.</copyright-notice>
+        <license-type>ml-computer-voice-tts/LICENSE</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+    <item>
+        <software>okhttp</software>
+        <version>3.14.9</version>
+        <copyright-notice>
+            Copyright 2019 Square, Inc.
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+            http://www.apache.org/licenses/LICENSE-2.0
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </copyright-notice>
+        <license-type>Apache License V2.0</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+    <item>
+        <software>gson</software>
+        <version>2.9.0</version>
+        <copyright-notice>
+            Copyright 2008 Google Inc.
+            Licensed under the Apache License, Version 2.0 (the "License");
+        </copyright-notice>
+        <license-type>Apache License 2.0</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+    <item>
+        <software>okio</software>
+        <version>1.17.4</version>
+        <copyright-notice>
+            Copyright 2013 Square, Inc.
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+            http://www.apache.org/licenses/LICENSE-2.0
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+        </copyright-notice>
+        <license-type>Apache License V2.0</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+</open-source-software-notice>

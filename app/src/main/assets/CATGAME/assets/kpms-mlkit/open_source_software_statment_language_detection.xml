@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<open-source-software-notice version= "3.3.0.300" update-time="2022-01-06">
+    <item>
+        <software>ml-computer-language-detection-aar</software>
+        <version>3.3.0.300</version>
+        <copyright-notice>Copyright (c) 2019-present, Huawei, Inc. All rights reserved.</copyright-notice>
+        <license-type>ml-computer-language-detection-aar/LICENSE</license-type>
+        <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+    </item>
+    <item>
+    <software>gson</software>
+    <version>2.9.0</version>
+    <copyright-notice>
+        Copyright 2008 Google Inc.
+        Licensed under the Apache License, Version 2.0 (the "License");
+    </copyright-notice>
+    <license-type>Apache License 2.0</license-type>
+    <license-text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</license-text>
+</item>
+</open-source-software-notice>

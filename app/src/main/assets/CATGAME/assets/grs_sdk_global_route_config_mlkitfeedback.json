@@ -1,0 +1,28 @@
+{
+    "applications": [],
+    "services": [
+        {
+            "name": "com.huawei.cloud.mlkitfeedback",
+            "routeBy": "ser_country>geo_ip",
+            "servings": [
+                {
+                    "countryGroup": "DR1",
+                    "addresses": {
+                        "ROOT": "https://huashan-datahub-drcn.emui.dbankcloud.com"
+                    }
+                }
+            ],
+            "countryGroups": [
+                {
+                    "id": "DR1",
+                    "name": "China",
+                    "countries": [
+                        "CN"
+                    ],
+                    "description": "China zone"
+                }
+            ]
+        }
+    ],
+    "countryGroups": []
+}
