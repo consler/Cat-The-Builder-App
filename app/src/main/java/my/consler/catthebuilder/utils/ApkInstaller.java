@@ -1,35 +1,36 @@
 package my.consler.catthebuilder.utils;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import androidx.core.content.FileProvider;
 import java.io.File;
 
-public class ApkInstaller {
-    /**
-     * Prompt the system installer to install the given APK file.
-     * @param context any Context (e.g. Activity or Application)
-     * @param apkFileName the APK file name in cacheDir (e.g. "CATGAME.apk")
-     */
-    public static void promptInstall(Context context, String apkFileName) {
-        // 1) locate the APK
-        File apkFile = new File(context.getCacheDir(), apkFileName);
-        if (!apkFile.exists()) {
-            throw new IllegalStateException("APK not found: " + apkFile.getAbsolutePath());
+
+public class ApkInstaller
+{
+    public static void shareFile(Context context, File file) {
+        if (!file.exists() || file.length() == 0) {
+            // Handle the error: file does not exist or is empty
+            Log.d( "ApkInstaller", "File does not exist or is empty");
         }
 
-        // 2) build a content:// URI via FileProvider
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+
         String authority = context.getPackageName() + ".provider";
-        Uri apkUri = FileProvider.getUriForFile(context, authority, apkFile);
+        Uri fileUri = FileProvider.getUriForFile(context, authority, file);
 
-        // 3) create install intent
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_TITLE, file.getName());
+        intent.setClipData(ClipData.newUri(context.getContentResolver(), "File to Save", fileUri));
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        // 4) launch
+        // Use FLAG_ACTIVITY_NEW_TASK when starting from non-Activity context
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
+
 }

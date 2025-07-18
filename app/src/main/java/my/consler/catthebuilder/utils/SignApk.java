@@ -23,7 +23,7 @@ public class SignApk
                             String keyPassword) throws Exception {
 
         // Load keystore
-        KeyStore ks = KeyStore.getInstance("JKS");
+        KeyStore ks = KeyStore.getInstance("PKCS12");
         try (FileInputStream in = new FileInputStream(keystoreFile)) {
             ks.load(in, keystorePassword.toCharArray());
         }
