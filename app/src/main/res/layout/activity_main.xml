@@ -111,7 +111,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
-            android:text="Action"
+            android:text=""
             android:layout_width="0dp"
             android:layout_height="57dp"
             android:layout_marginStart="16dp"

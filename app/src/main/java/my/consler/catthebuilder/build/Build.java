@@ -1,20 +1,17 @@
 package my.consler.catthebuilder.build;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-import at.favre.tools.apksigner.SignTool;
 
-import my.consler.catthebuilder.MainActivity;
 import my.consler.catthebuilder.utils.*;
 
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 
 public class Build
@@ -22,20 +19,18 @@ public class Build
 
     private static final String tag = "Build.java";
 
-    public static void start(Context context, String app_name, String package_name, String app_version, String file_name, TextView action) throws IOException
+    @SuppressLint("SetTextI18n")
+    public static void start(Context context, String app_name, String package_name, String app_version, String file_name, TextView action)
     {
         new Thread(() -> {
             Log.d(tag, "Starting build");
-            action.setText("Building...");
-
+            action.setText("Copying assets to cache...");
             File f = new File(context.getCacheDir(), file_name);
-
-
             try
             {
                 if (! new File(context.getCacheDir(), "CATGAME").exists())
                 {
-                    AssetsCopier.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
+                    Assets.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
                     Log.d(tag, "Assets copy done!");
 
                 }
@@ -57,9 +52,12 @@ public class Build
             Log.d(tag, "Moved .catrobat to cache dir");
 
 
-            try {
+            try
+            {
                 Zip.unzip(String.valueOf( new File(context.getCacheDir(),"/CATGAME/assets/CATGAME.zip").toPath()), String.valueOf( new File( context.getCacheDir(), "CATGAME/assets/").toPath()));
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 throw new RuntimeException(e);
             }
 
@@ -71,35 +69,44 @@ public class Build
 
             action.setText("Updating AndroidManifest");
             Log.d(tag, "Updating Manifest");
-            String DummyManifest = ReadDummyManifest.read(context, "DummyManifest.xml");
 
-            DummyManifest = DummyManifest.replace("CATGAME", app_name);
-            DummyManifest = DummyManifest.replace("my.catgame", package_name);
+            File manifest_file = new File(context.getCacheDir(), "CATGAME/AndroidManifest.xml");
+            String Manifest = "";
 
-
-            FileWriter fw;
-            try {
-                fw = new FileWriter(context.getCacheDir() + "/CATGAME/assets/CATGAME/AndroidManifest.xml");
-            } catch (IOException e) {
+            try
+            {
+                Manifest = Read.readFileToString(manifest_file);
+            }
+            catch (IOException e)
+            {
                 throw new RuntimeException(e);
             }
-            try {
-                fw.write(DummyManifest);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                fw.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            Manifest = Manifest.replace("CATGAME", app_name);
+            Manifest = Manifest.replace("package=\"my.catgame\"", "package=\"" + package_name + "\"");
+
+            Log.d(tag, Manifest);
+
+//            try (
+//                    FileOutputStream fos = new FileOutputStream(new File(context.getCacheDir(), "CATGAME/AndroidManifest.xml"));
+//                 OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+//                 BufferedWriter bw = new BufferedWriter(writer))
+//            {
+//                bw.write(Manifest);
+//                bw.flush();
+//            }
+//            catch (IOException e)
+//            {
+//                throw new RuntimeException("Failed to write manifest", e);
+//            }
 
             Log.d(tag, "Deleting old APK");
             new File(context.getCacheDir(), "CATGAME.apk").delete();
 
             action.setText("Building APK...");
 
-            try {
+            try
+            {
                 Zip.zipFolderContentsStored(String.valueOf( new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf( new File(context.getCacheDir(), "CATGAME.apk").toPath()));
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -107,7 +114,7 @@ public class Build
             Log.d(tag, "Zipped APK");
             action.setText("APK built");
 
-            AssetsCopier.copyAssetToCache(context, "ks.p12");
+            Assets.copyAssetToCache(context, "ks.p12");
             Log.d(tag, "Copied ks.p12 to cache dir");
 
             File catgame = new File(context.getCacheDir(), "CATGAME.apk");
@@ -117,7 +124,7 @@ public class Build
             out_game.delete();
             try
             {
-                SignApk.sign(catgame, out_game, ks_direcotry, "password", "cert2", "password");
+                Sign.sign(catgame, out_game, ks_direcotry, "password", "cert2", "password");
             }
             catch (Exception e)
             {
@@ -127,11 +134,11 @@ public class Build
             action.setText("APK signed and zipaligned");
             Log.d(tag, "Apk signed and zipaligned");
 
-            ApkInstaller.shareFile(context, out_game);
+            Log.d("Build.java", "Signed APK size: " + out_game.length());
+            ((Activity) context).runOnUiThread(() -> Export.shareFile((Activity) context, out_game));
             action.setText("APK installed");
             Log.d(tag, "Done!");
         }).start();
-
 
     }
 

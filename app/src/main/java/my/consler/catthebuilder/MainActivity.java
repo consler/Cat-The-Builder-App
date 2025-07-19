@@ -1,15 +1,27 @@
 package my.consler.catthebuilder;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import my.consler.catthebuilder.utils.CleanCacheDir;
+import my.consler.catthebuilder.buttons.Build;
+import my.consler.catthebuilder.buttons.FilePicker;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 
 public class MainActivity extends AppCompatActivity
 {
@@ -27,16 +39,35 @@ public class MainActivity extends AppCompatActivity
 
         });
 
-        // CleanCacheDir.clean(this);
-
         Button build_button = findViewById(R.id.build_button);
-        build_button.setOnClickListener(new BuildButton(this));
+        build_button.setOnClickListener(new Build(this));
 
         Button file_picker_button = findViewById(R.id.file_picker_button);
-        file_picker_button.setOnClickListener(new FilePickerButton(this));
+        file_picker_button.setOnClickListener(new FilePicker(this));
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 222) {
+            try {
+                if (data == null || data.getData() == null) {
+                    Log.d("MainActivity", "data = null");
+                    return;
+                }
+                OutputStream stream = getContentResolver().openOutputStream(data.getData());
+                File apk = new File(getCacheDir(), "CATGAME_signed.apk");
+                Files.copy(apk.toPath(), stream);
+                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
+                if (stream != null) stream.close();
+            } catch (Exception e) {
+                Log.d("MainActivity", "error");
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 }
