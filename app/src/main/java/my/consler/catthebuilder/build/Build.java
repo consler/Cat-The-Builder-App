@@ -8,10 +8,7 @@ import android.widget.TextView;
 
 import my.consler.catthebuilder.utils.*;
 
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 
 
 public class Build
@@ -67,38 +64,7 @@ public class Build
             action.setText("Deleted .catrobat");
 
 
-            action.setText("Updating AndroidManifest");
-            Log.d(tag, "Updating Manifest");
 
-            File manifest_file = new File(context.getCacheDir(), "CATGAME/AndroidManifest.xml");
-            String Manifest = "";
-
-            try
-            {
-                Manifest = Read.readFileToString(manifest_file);
-            }
-            catch (IOException e)
-            {
-                throw new RuntimeException(e);
-            }
-
-            Manifest = Manifest.replace("CATGAME", app_name);
-            Manifest = Manifest.replace("package=\"my.catgame\"", "package=\"" + package_name + "\"");
-
-            Log.d(tag, Manifest);
-
-//            try (
-//                    FileOutputStream fos = new FileOutputStream(new File(context.getCacheDir(), "CATGAME/AndroidManifest.xml"));
-//                 OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
-//                 BufferedWriter bw = new BufferedWriter(writer))
-//            {
-//                bw.write(Manifest);
-//                bw.flush();
-//            }
-//            catch (IOException e)
-//            {
-//                throw new RuntimeException("Failed to write manifest", e);
-//            }
 
             Log.d(tag, "Deleting old APK");
             new File(context.getCacheDir(), "CATGAME.apk").delete();
@@ -118,6 +84,18 @@ public class Build
             Log.d(tag, "Copied ks.p12 to cache dir");
 
             File catgame = new File(context.getCacheDir(), "CATGAME.apk");
+
+            action.setText("Updating AndroidManifest");
+            Log.d(tag, "Updating Manifest");
+            try
+            {
+                Manifest.change(catgame, package_name, app_name, app_version);
+            }
+            catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+
             File ks_direcotry = new File(context.getCacheDir(), "ks.p12");
             Log.d(tag, String.valueOf(ks_direcotry.exists()));
             File out_game = new File(context.getCacheDir(), "CATGAME_signed.apk");

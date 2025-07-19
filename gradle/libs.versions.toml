@@ -1,6 +1,7 @@
 [versions]
 agp = "8.10.0"
 apktoolLib = "2.12.0"
+axml = "2.1.3"
 brutJCommon = "2.12.0"
 commonsCli = "1.4"
 commonsIo = "2.19.0"
@@ -22,6 +23,7 @@ zip4j = "2.11.5"
 [libraries]
 apktool-apktool-lib = { module = "org.apktool:apktool-lib", version.ref = "brutJCommon" }
 apktool-lib = { module = "org.jf:apktool-lib", version.ref = "apktoolLib" }
+axml = { module = "de.upb.cs.swt:axml", version.ref = "axml" }
 baksmali = { module = "org.smali:baksmali", version.ref = "smali" }
 brut-j-common = { module = "org.apktool:brut.j.common", version.ref = "brutJCommon" }
 commons-cli = { module = "commons-cli:commons-cli", version.ref = "commonsCli" }
