@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">" Кот строитель"</string>
+    <string name="your_app_name">Имя приложения</string>
+    <string name="your_package_name">Имя пакета</string>
+    <string name="your_version">Версия приложения</string>
+    <string name="your_icon">Иконка приложения</string>
+    <string name="your_catrobat">Ваш .catrobat</string>
+    <string name="build_app">Построить</string>
+</resources>

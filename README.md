@@ -4,4 +4,11 @@ App to build .apk from .catrobat
 ## How to use
 Intuitive to use.
 
-Icon can't be chosen YET, as well as variable don't save YET.
+
+## TO DO: 
+* **Fix bugs:**
+    * App closes funkily
+    * Only one build possible??
+* **Optimize**
+* **Add the ability to choose a normal icon and a round icon**
+* **Settings:**

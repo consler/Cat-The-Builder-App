@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cat The Builder</string>
+    <string name="your_app_name">Your app name</string>
+    <string name="your_package_name">Your package name(e.g. my.dummy.app)</string>
+    <string name="your_version">Your app version</string>
+    <string name="your_icon">Your icon</string>
+    <string name="your_catrobat">Your .catrobat</string>
+    <string name="build_app">Build</string>
+
 </resources>

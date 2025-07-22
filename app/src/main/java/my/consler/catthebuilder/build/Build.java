@@ -114,6 +114,10 @@ public class Build
 
             Log.d("Build.java", "Signed APK size: " + out_game.length());
             ((Activity) context).runOnUiThread(() -> Export.shareFile((Activity) context, out_game));
+            action.setText("Cleaning up...");
+            File c = new File( String.valueOf( context.getCacheDir()));
+            Log.d(tag, String.valueOf( c.delete()));
+
             action.setText("APK installed");
             Log.d(tag, "Done!");
         }).start();
