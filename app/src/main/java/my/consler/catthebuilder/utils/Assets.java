@@ -96,8 +96,6 @@ public class Assets {
                 while ((read = in.read(buf)) != -1) {
                     out.write(buf, 0, read);
                 }
-                Log.d(TAG, "Copied asset: " + assetFilePath
-                        + " -> " + outFile.getAbsolutePath());
             } catch (IOException e) {
                 Log.e(TAG, "Failed copying asset " + assetFilePath, e);
             }
@@ -132,8 +130,7 @@ public class Assets {
             return outFile;
 
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
 
         } finally {
             // Close streams, ignoring secondary exceptions

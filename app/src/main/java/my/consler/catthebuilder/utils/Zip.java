@@ -87,7 +87,6 @@ public class Zip {
                     .filter(p -> !Files.isDirectory(p))
                     .forEach(p -> {
                         String entryName = sourceDir.relativize(p).toString().replace("\\", "/");
-                        Log.d(TAG, "Adding (STORED) " + entryName);
                         try {
                             EntryMeta meta = computeMeta(p);
                             ZipEntry e = new ZipEntry(entryName);

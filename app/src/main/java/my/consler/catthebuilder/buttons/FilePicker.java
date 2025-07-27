@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.OpenableColumns;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,16 +13,18 @@ import androidx.activity.ComponentActivity;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import my.consler.catthebuilder.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-// idk bro ai generated this
+
 public class FilePicker implements View.OnClickListener
 {
     private final Context context;
     private final ActivityResultLauncher<String[]> pickLauncher;
+    private static int id;
 
     public FilePicker(Context context)
     {
@@ -41,7 +44,23 @@ public class FilePicker implements View.OnClickListener
                     {
                         if (uri != null)
                         {
-                            Build.setPickedFileName( copyUriToCache(uri));
+
+                            Log.d("filepicker", uri.toString() );
+
+                            if(id == R.id.file_picker_button)
+                            {
+                                copyUriToCache(uri, "catrobat");
+                                Toast.makeText(context, "Catrobat file picked", Toast.LENGTH_SHORT).show();
+
+
+                            }
+                            else if(id == R.id.icon_button)
+                            {
+
+                                Toast.makeText(context, "Copied icon to cache: ", Toast.LENGTH_SHORT).show();
+                                String fileName = copyUriToCache(uri, "icon");
+
+                            }
 
                         }
 
@@ -56,11 +75,12 @@ public class FilePicker implements View.OnClickListener
     @Override
     public void onClick(View view)
     {
-        // Launch the system picker for any file type
+        id = view.getId();
+
         pickLauncher.launch(new String[]{"*/*"});
     }
 
-    private String copyUriToCache(Uri uri)
+    private String copyUriToCache(Uri uri, String s)
     {
         String fileName = queryFileName(uri);
         File cacheFile = new File(context.getCacheDir(), fileName);
@@ -77,7 +97,34 @@ public class FilePicker implements View.OnClickListener
 
             String file_name = cacheFile.getName();
 
-            Toast.makeText(context, "Copied to cache: " + file_name, Toast.LENGTH_SHORT).show();
+            if (s.equals("catrobat"))
+            {
+                new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "CATGAME.catrobat"));
+
+            }
+            else if (s.equals("icon"))
+            {
+                new File(context.getCacheDir(), "icon.png").delete();
+                new File(context.getCacheDir(), "icon.jpg").delete();
+
+                if (file_name.endsWith(".jpg") || file_name.endsWith(".jpeg"))
+                {
+                    new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.jpg"));
+
+
+                }
+                else if (file_name.endsWith(".png"))
+                {
+                    new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.png"));
+
+                }
+                else
+                {
+                    throw new RuntimeException("Icon not a png or a jpg");
+                }
+
+            }
+
             return file_name;
         }
         catch (Exception e)

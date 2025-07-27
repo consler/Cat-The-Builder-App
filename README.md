@@ -6,9 +6,7 @@ Intuitive to use.
 
 
 ## TO DO: 
-* **Fix bugs:**
-    * App closes funkily
-    * Only one build possible??
 * **Optimize**
 * **Add the ability to choose a normal icon and a round icon**
-* **Settings:**
+* **Options**
+* **Ability to choose target platforms(x86, x64, arm64, etc)**

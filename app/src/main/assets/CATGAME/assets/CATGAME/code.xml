@@ -5,8 +5,8 @@
     <applicationBuildNumber>0</applicationBuildNumber>
     <applicationBuildType>signedRelease</applicationBuildType>
     <applicationName>Pocket Code</applicationName>
-    <applicationVersion>1.2.4</applicationVersion>
-    <catrobatLanguageVersion>1.11</catrobatLanguageVersion>
+    <applicationVersion>1.3.0</applicationVersion>
+    <catrobatLanguageVersion>1.13</catrobatLanguageVersion>
     <dateTimeUpload></dateTimeUpload>
     <description></description>
     <deviceName>Pixel 7a</deviceName>
@@ -16,7 +16,7 @@
     <mediaLicense></mediaLicense>
     <notesAndCredits></notesAndCredits>
     <platform>Android</platform>
-    <platformVersion>34</platformVersion>
+    <platformVersion>36</platformVersion>
     <programLicense></programLicense>
     <programName>My project</programName>
     <remixOf></remixOf>
@@ -41,7 +41,25 @@
             </look>
           </lookList>
           <soundList/>
-          <scriptList/>
+          <scriptList>
+            <script type="StartScript" posX="0.0" posY="0.0">
+              <brickList>
+                <brick type="NoteBrick">
+                  <brickId>d5102daf-6b9b-40cf-95b5-224ed616f082</brickId>
+                  <commentedOut>false</commentedOut>
+                  <formulaList>
+                    <formula category="NOTE">
+                      <additionalChildren/>
+                      <type>STRING</type>
+                      <value>CATGAME</value>
+                    </formula>
+                  </formulaList>
+                </brick>
+              </brickList>
+              <commentedOut>false</commentedOut>
+              <scriptId>dfa29841-c416-498e-a0c1-7b366cd1cdff</scriptId>
+            </script>
+          </scriptList>
           <nfcTagList/>
           <userVariables/>
           <userLists/>
@@ -59,7 +77,7 @@
             <script type="StartScript" posX="0.0" posY="0.0">
               <brickList>
                 <brick type="PlaceAtBrick">
-                  <brickId>ac758ac5-97cd-4150-91ab-e11281ff704b</brickId>
+                  <brickId>e515faa3-5dd6-433a-909e-03b27c7b55ae</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
                     <formula category="Y_POSITION">
@@ -75,9 +93,14 @@
                   </formulaList>
                 </brick>
                 <brick type="GlideToBrick">
-                  <brickId>ce9ebec6-35c2-43a9-98f7-29d954007f37</brickId>
+                  <brickId>b119838e-a9fc-4af9-b7ab-5ef2aae4f02f</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
+                    <formula category="Y_DESTINATION">
+                      <additionalChildren/>
+                      <type>NUMBER</type>
+                      <value>0</value>
+                    </formula>
                     <formula category="X_DESTINATION">
                       <additionalChildren/>
                       <rightChild>
@@ -88,11 +111,6 @@
                       <type>OPERATOR</type>
                       <value>MINUS</value>
                     </formula>
-                    <formula category="Y_DESTINATION">
-                      <additionalChildren/>
-                      <type>NUMBER</type>
-                      <value>0</value>
-                    </formula>
                     <formula category="DURATION_IN_SECONDS">
                       <additionalChildren/>
                       <type>NUMBER</type>
@@ -101,7 +119,7 @@
                   </formulaList>
                 </brick>
                 <brick type="PlaceAtBrick">
-                  <brickId>6325ee48-cf80-4407-8f61-b8b1a13191bc</brickId>
+                  <brickId>f1e8a85e-7a29-4354-841c-96e1b80d2aaf</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
                     <formula category="Y_POSITION">
@@ -117,13 +135,18 @@
                   </formulaList>
                 </brick>
                 <brick type="ForeverBrick">
-                  <brickId>397271b7-b008-4f64-a5e8-6d40566226d3</brickId>
+                  <brickId>581052e4-e424-43d9-bab3-ca2bf02b2bd7</brickId>
                   <commentedOut>false</commentedOut>
                   <loopBricks>
                     <brick type="GlideToBrick">
-                      <brickId>c82f1a27-0ce8-4b3f-ab04-019815742631</brickId>
+                      <brickId>e5650119-8d47-4113-bff6-5327b4b68430</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
+                        <formula category="Y_DESTINATION">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>0</value>
+                        </formula>
                         <formula category="X_DESTINATION">
                           <additionalChildren/>
                           <rightChild>
@@ -134,11 +157,6 @@
                           <type>OPERATOR</type>
                           <value>MINUS</value>
                         </formula>
-                        <formula category="Y_DESTINATION">
-                          <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>0</value>
-                        </formula>
                         <formula category="DURATION_IN_SECONDS">
                           <additionalChildren/>
                           <type>NUMBER</type>
@@ -147,7 +165,7 @@
                       </formulaList>
                     </brick>
                     <brick type="PlaceAtBrick">
-                      <brickId>5a06d033-59ac-42c9-8e5c-1d7f3e75ff94</brickId>
+                      <brickId>66378464-a470-4bc5-90e3-9cc914b94bbd</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
                         <formula category="Y_POSITION">
@@ -166,7 +184,7 @@
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>5807d866-e138-4379-8dbb-89e26252c994</scriptId>
+              <scriptId>1d06e50b-035f-49e9-8790-9b3d80561725</scriptId>
             </script>
           </scriptList>
           <nfcTagList/>
@@ -186,7 +204,7 @@
             <script type="StartScript" posX="0.0" posY="0.0">
               <brickList>
                 <brick type="PlaceAtBrick">
-                  <brickId>43751529-cdc8-427f-b950-30af87918968</brickId>
+                  <brickId>9e35aa80-93e7-41a9-b4e9-3e807a4f8bc5</brickId>
                   <commentedOut>false</commentedOut>
                   <formulaList>
                     <formula category="Y_POSITION">
@@ -202,13 +220,18 @@
                   </formulaList>
                 </brick>
                 <brick type="ForeverBrick">
-                  <brickId>1180544b-da14-4c98-8c00-36383863a051</brickId>
+                  <brickId>781ebf7e-d5b4-41f3-8904-709d86f1b373</brickId>
                   <commentedOut>false</commentedOut>
                   <loopBricks>
                     <brick type="GlideToBrick">
-                      <brickId>34412821-42c2-479d-a3ef-4ef0bb6abfb5</brickId>
+                      <brickId>28812614-c668-4c3c-af87-883a3eff1fc8</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
+                        <formula category="Y_DESTINATION">
+                          <additionalChildren/>
+                          <type>NUMBER</type>
+                          <value>0</value>
+                        </formula>
                         <formula category="X_DESTINATION">
                           <additionalChildren/>
                           <rightChild>
@@ -219,11 +242,6 @@
                           <type>OPERATOR</type>
                           <value>MINUS</value>
                         </formula>
-                        <formula category="Y_DESTINATION">
-                          <additionalChildren/>
-                          <type>NUMBER</type>
-                          <value>0</value>
-                        </formula>
                         <formula category="DURATION_IN_SECONDS">
                           <additionalChildren/>
                           <type>NUMBER</type>
@@ -232,7 +250,7 @@
                       </formulaList>
                     </brick>
                     <brick type="PlaceAtBrick">
-                      <brickId>34ff2f82-f689-4e2f-b621-9e84dec65057</brickId>
+                      <brickId>b7ea6b8b-e483-40ca-a13e-7521a66aecbc</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
                         <formula category="Y_POSITION">
@@ -251,7 +269,7 @@
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>502f9304-728e-4949-976a-a0c27c2d8cb3</scriptId>
+              <scriptId>c11af2a2-07bb-4539-9fe1-02813792e9dd</scriptId>
             </script>
           </scriptList>
           <nfcTagList/>
@@ -282,33 +300,13 @@
             <script type="StartScript" posX="0.0" posY="0.0">
               <brickList>
                 <brick type="ForeverBrick">
-                  <brickId>9a161ba9-016c-435d-876d-9c814e932cb9</brickId>
+                  <brickId>91195d9b-8d45-4d05-8786-f547a64b1799</brickId>
                   <commentedOut>false</commentedOut>
                   <loopBricks>
                     <brick type="GlideToBrick">
-                      <brickId>58397604-5afc-44bc-92e5-3ff573da2f93</brickId>
+                      <brickId>fc2e2fb7-8f26-4baf-bb82-b3ceaaf1cc1c</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
-                        <formula category="X_DESTINATION">
-                          <additionalChildren/>
-                          <leftChild>
-                            <additionalChildren/>
-                            <rightChild>
-                              <additionalChildren/>
-                              <type>NUMBER</type>
-                              <value>300</value>
-                            </rightChild>
-                            <type>OPERATOR</type>
-                            <value>MINUS</value>
-                          </leftChild>
-                          <rightChild>
-                            <additionalChildren/>
-                            <type>NUMBER</type>
-                            <value>300</value>
-                          </rightChild>
-                          <type>FUNCTION</type>
-                          <value>RAND</value>
-                        </formula>
                         <formula category="Y_DESTINATION">
                           <additionalChildren/>
                           <leftChild>
@@ -329,6 +327,26 @@
                           <type>FUNCTION</type>
                           <value>RAND</value>
                         </formula>
+                        <formula category="X_DESTINATION">
+                          <additionalChildren/>
+                          <leftChild>
+                            <additionalChildren/>
+                            <rightChild>
+                              <additionalChildren/>
+                              <type>NUMBER</type>
+                              <value>300</value>
+                            </rightChild>
+                            <type>OPERATOR</type>
+                            <value>MINUS</value>
+                          </leftChild>
+                          <rightChild>
+                            <additionalChildren/>
+                            <type>NUMBER</type>
+                            <value>300</value>
+                          </rightChild>
+                          <type>FUNCTION</type>
+                          <value>RAND</value>
+                        </formula>
                         <formula category="DURATION_IN_SECONDS">
                           <additionalChildren/>
                           <type>NUMBER</type>
@@ -340,20 +358,20 @@
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>24b125d7-ca78-4fde-b25f-2f7c02b7e161</scriptId>
+              <scriptId>285791d1-1344-4c21-a9ed-b6ad89d829f1</scriptId>
             </script>
             <script type="StartScript" posX="0.0" posY="0.0">
               <brickList>
                 <brick type="ForeverBrick">
-                  <brickId>4c6526ec-d03e-4d2b-8c35-af8b00481047</brickId>
+                  <brickId>4ae5adb2-4152-4000-bb12-b659fb0e5783</brickId>
                   <commentedOut>false</commentedOut>
                   <loopBricks>
                     <brick type="NextLookBrick">
-                      <brickId>f9c29ed9-e8b1-477b-90e2-fb37e1cd66ed</brickId>
+                      <brickId>7571f359-99c5-4e79-b4be-3b8b2a9b3d9c</brickId>
                       <commentedOut>false</commentedOut>
                     </brick>
                     <brick type="WaitBrick">
-                      <brickId>7e9eb8b8-e40e-4247-8117-02e30aed94a1</brickId>
+                      <brickId>ec4bb304-4da3-477b-a652-45c25e4377f3</brickId>
                       <commentedOut>false</commentedOut>
                       <formulaList>
                         <formula category="TIME_TO_WAIT_IN_SECONDS">
@@ -367,18 +385,18 @@
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>f9bbf68d-44d1-42a1-aefc-5ab66de66a08</scriptId>
+              <scriptId>54952a4a-611f-4b51-a400-0e769bd15700</scriptId>
             </script>
             <script type="WhenScript" posX="0.0" posY="0.0">
               <brickList>
                 <brick type="PlaySoundBrick">
-                  <brickId>166cf72f-cbca-4d84-ba56-894dfb080191</brickId>
+                  <brickId>3a233106-c3b6-455a-b0d6-81bbf286d2c8</brickId>
                   <commentedOut>false</commentedOut>
                   <sound reference="../../../../../soundList/sound"/>
                 </brick>
               </brickList>
               <commentedOut>false</commentedOut>
-              <scriptId>5e3a7458-1713-4c45-927f-f3bc48746e9f</scriptId>
+              <scriptId>6dc565cb-357b-4228-9c38-bc1353d976bc</scriptId>
             </script>
           </scriptList>
           <nfcTagList/>

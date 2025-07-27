@@ -12,15 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import my.consler.catthebuilder.buttons.Build;
+import my.consler.catthebuilder.build.Build;
+import my.consler.catthebuilder.buttons.BuildButton;
 import my.consler.catthebuilder.buttons.FilePicker;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 
 
 public class MainActivity extends AppCompatActivity
@@ -40,34 +38,51 @@ public class MainActivity extends AppCompatActivity
         });
 
         Button build_button = findViewById(R.id.build_button);
-        build_button.setOnClickListener(new Build(this));
+        build_button.setOnClickListener(new BuildButton(this));
 
         Button file_picker_button = findViewById(R.id.file_picker_button);
         file_picker_button.setOnClickListener(new FilePicker(this));
 
+        Button icon_button = findViewById(R.id.icon_button);
+        icon_button.setOnClickListener(new FilePicker(this));
+
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 222) {
-            try {
-                if (data == null || data.getData() == null) {
+        if (requestCode == 222) // 222 is exporting the apk
+        {
+            try
+            {
+                if (data == null || data.getData() == null)
+                {
                     Log.d("MainActivity", "data = null");
                     return;
                 }
                 OutputStream stream = getContentResolver().openOutputStream(data.getData());
-                File apk = new File(getCacheDir(), "CATGAME_signed.apk");
+                File apk = new File(getCacheDir(), Build.get_apk_name());
                 Files.copy(apk.toPath(), stream);
-                Toast.makeText(this, "done", Toast.LENGTH_SHORT).show();
                 if (stream != null) stream.close();
-            } catch (Exception e) {
+
+                // cleaning
+                new File(getCacheDir(), "CATGAME.apk").delete();
+                new File(getCacheDir(),  Build.get_apk_name()).delete();
+
+                Build.is_running = false;
+
+            }
+            catch (Exception e)
+            {
                 Log.d("MainActivity", "error");
                 e.printStackTrace();
-            }
-        }
-    }
 
+            }
+
+        }
+
+    }
 
 }

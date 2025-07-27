@@ -29,7 +29,6 @@ android {
     }
 }
 
-
 dependencies {
 
     implementation libs.appcompat
@@ -39,9 +38,11 @@ dependencies {
     implementation libs.rxjava
     implementation libs.zip4j
     implementation libs.commons.io
-    implementation 'com.android.tools.build:apksig:8.11.1'
-    implementation 'com.bihe0832.android:lib-utils-apk:6.25.19'
-    implementation 'com.github.REAndroid:ARSCLib:V1.3.5'
+    implementation libs.apksig
+    implementation libs.lib.utils.apk
+    implementation libs.arsclib
+    // https://mvnrepository.com/artifact/com.github.xgouchet/AXML
+    implementation 'com.github.xgouchet:AXML:1.0.1'
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
