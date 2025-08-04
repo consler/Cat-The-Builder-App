@@ -5,11 +5,14 @@
     <string name="your_version">Your app version(e.g. v1.0.5)</string>
     <string name="your_icon">Your icon</string>
     <string name="your_catrobat">Your .catrobat</string>
-    <string name="build_app">Build</string>
+    <string name="build_app">Build app</string>
     <string name="version_code">Your version code(must be a whole number)</string>
     <string name="copying_assets_to_cache">Copying assets to cache...</string>
     <string name="building_apk">Building app...</string>
     <string name="updating_android_manifest">Updating AndroidManifest...</string>
     <string name="apk_installed">App installed!</string>
+    <string name="imported_icon">Icon imported</string>
+    <string name="catrobat_imported">Imported .catrobat</string>
+    <string name="invalid_icon">Invalid icon chosen</string>
 
 </resources>

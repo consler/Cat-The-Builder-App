@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,13 +71,19 @@ public class MainActivity extends AppCompatActivity
                 new File(getCacheDir(),  Build.get_apk_name()).delete();
 
                 Build.is_running = false;
-
             }
             catch (Exception e)
             {
                 Log.d("MainActivity", "error");
                 e.printStackTrace();
+            }
+            finally
+            {
+                // cleaning
+                new File(getCacheDir(), "CATGAME.apk").delete();
+                new File(getCacheDir(),  Build.get_apk_name()).delete();
 
+                Build.is_running = false;
             }
 
         }

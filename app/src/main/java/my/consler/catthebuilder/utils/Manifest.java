@@ -1,32 +1,21 @@
 package my.consler.catthebuilder.utils;
 
+import android.content.Context;
 import com.android.apksig.apk.ApkFormatException;
 import com.reandroid.apk.ApkModule;
 import com.reandroid.app.AndroidManifest;
-import com.reandroid.archive.ZipAlign;
-import com.reandroid.archive.block.ApkSignatureBlock;
-import com.reandroid.archive.block.SignatureScheme;
-import com.reandroid.arsc.chunk.PackageBlock;
 import com.reandroid.arsc.chunk.xml.AndroidManifestBlock;
-import com.reandroid.arsc.coder.EncodeResult;
-import com.reandroid.arsc.coder.ValueCoder;
-import com.reandroid.arsc.value.Entry;
-import com.reandroid.dex.header.Signature;
-import com.reandroid.graphics.AndroidColor;
-import com.reandroid.identifiers.ResourceIdentifier;
 
 import java.io.*;
-import java.util.Map;
 
 public class Manifest
 {
-    public static void change(File apk_file, String package_name, String app_name, String version, String version_code) throws IOException, ApkFormatException
+    public static void change(File apk_file, String package_name, String app_name, String version, String version_code, Context context) throws IOException, ApkFormatException
     {
         if (!apk_file.exists() || !apk_file.isFile())
         {
             throw new IOException("The specified file does not exist or is not a valid file.");
         }
-
         ApkModule apk = ApkModule.loadApkFile(apk_file);
         AndroidManifestBlock manifest = apk.getAndroidManifest();
 

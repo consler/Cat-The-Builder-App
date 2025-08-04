@@ -44,32 +44,30 @@ public class FilePicker implements View.OnClickListener
                     {
                         if (uri != null)
                         {
-
                             Log.d("filepicker", uri.toString() );
 
                             if(id == R.id.file_picker_button)
                             {
                                 copyUriToCache(uri, "catrobat");
-                                Toast.makeText(context, "Catrobat file picked", Toast.LENGTH_SHORT).show();
-
-
+                                Toast.makeText(context, context.getString(R.string.catrobat_imported), Toast.LENGTH_SHORT).show();
                             }
                             else if(id == R.id.icon_button)
                             {
-
-                                Toast.makeText(context, "Copied icon to cache: ", Toast.LENGTH_SHORT).show();
-                                String fileName = copyUriToCache(uri, "icon");
-
+                                String icon_name = copyUriToCache(uri, "icon");
+                                if(icon != null)
+                                {
+                                    Toast.makeText(context, context.getString(R.string.imported_icon), Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    new File(context.getCacheDir(), icon_name).delete();
+                                    Toast.makeText(context, context.getString(R.string.invalid_icon), Toast.LENGTH_SHORT).show();
+                                }
                             }
-
                         }
-
                     }
-
                 }
-
         );
-
     }
 
     @Override
@@ -78,6 +76,13 @@ public class FilePicker implements View.OnClickListener
         id = view.getId();
 
         pickLauncher.launch(new String[]{"*/*"});
+    }
+
+    private static File icon = null;
+
+    public static File getIcon()
+    {
+        return icon;
     }
 
     private String copyUriToCache(Uri uri, String s)
@@ -99,41 +104,38 @@ public class FilePicker implements View.OnClickListener
 
             if (s.equals("catrobat"))
             {
+                File catgame = new File(context.getCacheDir(), "CATGAME.catrobat");
+                if(catgame.exists() && !file_name.equals("CATGAME.catrobat")) catgame.delete();
                 new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "CATGAME.catrobat"));
-
             }
             else if (s.equals("icon"))
             {
                 new File(context.getCacheDir(), "icon.png").delete();
                 new File(context.getCacheDir(), "icon.jpg").delete();
+                new File(context.getCacheDir(), "icon.webp").delete();
 
                 if (file_name.endsWith(".jpg") || file_name.endsWith(".jpeg"))
                 {
                     new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.jpg"));
-
-
+                    icon = new File(context.getCacheDir(), "icon.jpg");
                 }
                 else if (file_name.endsWith(".png"))
                 {
                     new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.png"));
-
+                    icon = new File(context.getCacheDir(), "icon.png");
                 }
-                else
+                else if (file_name.endsWith(".webp"))
                 {
-                    throw new RuntimeException("Icon not a png or a jpg");
+                    new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.webp"));
+                    icon = new File(context.getCacheDir(), "icon.webp");
                 }
-
             }
-
             return file_name;
         }
         catch (Exception e)
         {
-            Toast.makeText(context, "Copy failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
-
         }
-
     }
 
     private String queryFileName(Uri uri)
@@ -148,14 +150,10 @@ public class FilePicker implements View.OnClickListener
                 if (idx != -1 && cursor.moveToFirst())
                 {
                     name = cursor.getString(idx);
-
                 }
-
             }
-
         }
         return name;
-
     }
 
 }

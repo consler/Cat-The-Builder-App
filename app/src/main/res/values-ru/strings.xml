@@ -12,4 +12,7 @@
     <string name="building_apk">Строим приложение...</string>
     <string name="updating_android_manifest">Обновлям AndroidManifest...</string>
     <string name="apk_installed">Приложение установлено</string>
+    <string name="imported_icon">Иконка импортирована</string>
+    <string name="catrobat_imported">.catrobat импортирован</string>
+    <string name="invalid_icon">Недействитильная иконка выбрана</string>
 </resources>

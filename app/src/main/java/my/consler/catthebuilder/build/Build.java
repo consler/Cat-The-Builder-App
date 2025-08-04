@@ -2,11 +2,11 @@ package my.consler.catthebuilder.build;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.android.apksig.apk.ApkFormatException;
-import com.android.apksig.internal.apk.AndroidBinXmlParser;
 import my.consler.catthebuilder.R;
 import my.consler.catthebuilder.utils.*;
 
@@ -31,6 +31,7 @@ public class Build
         {
             new Thread(() ->
             {
+                Looper.prepare();
                 is_running = true;
 
                 Log.d(tag, "Starting build");
@@ -61,25 +62,14 @@ public class Build
                 try
                 {
                     Zip.unzip(String.valueOf( f.toPath()), String.valueOf( new File( context.getCacheDir(), "CATGAME/assets/CATGAME").toPath())); // unzipping the file so CATGAME could load it, this allows for a slightly faster loading speed than cbuilder
-
                 }
                 catch (IOException e)
                 {
                     throw new RuntimeException(e);
-
                 }
 
-                try
-                {
-                    Icon.change(context);
-                }
-                catch (IOException e)
-                {
-                     throw new RuntimeException(e);
-                }
+                Icon.change(context);
 
-
-                // for now we just delete these, but later there is gonna be an option to not
 //                new File(context.getCacheDir(), "CATGAME/assets/CATGAME/lib/x86").delete();
 //                new File(context.getCacheDir(), "CATGAME/assets/CATGAME/lib/x86_64").delete();
 
@@ -91,12 +81,10 @@ public class Build
                 try
                 {
                     Zip.zipFolderContentsStored(String.valueOf( new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf( new File(context.getCacheDir(), "CATGAME.apk").toPath())); // zipping the apk bc apktool takes too long
-
                 }
                 catch (IOException e)
                 {
                     throw new RuntimeException(e);
-
                 }
 
                 // copying the keystore to cache
@@ -108,7 +96,7 @@ public class Build
                 action.setText(context.getString(R.string.updating_android_manifest));
                 try
                 {
-                    Manifest.change(catgame, package_name, app_name, app_version, version_code); // updating manifest to match the user's preference
+                    Manifest.change(catgame, package_name, app_name, app_version, version_code, context); // updating manifest to match the user's preference
                 }
                 catch (IOException | ApkFormatException e)
                 {

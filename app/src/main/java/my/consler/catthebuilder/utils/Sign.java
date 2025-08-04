@@ -2,11 +2,13 @@ package my.consler.catthebuilder.utils;
 
 import com.android.apksig.ApkSigner;
 import com.android.apksig.ApkSigner.SignerConfig;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.Security;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
@@ -15,14 +17,14 @@ import java.util.stream.Collectors;
 
 public class Sign
 {
-    public static void sign(File inputApk,
-                            File outputApk,
-                            File keystoreFile,
-                            String keystorePassword,
-                            String keyAlias,
-                            String keyPassword) throws Exception {
+    public static void sign(File inputApk, File outputApk, File keystoreFile, String keystorePassword, String keyAlias, String keyPassword) throws Exception
+    {
+        // Remove existing BC provider if any
+        Security.removeProvider("BC");
+        // Register Bouncy Castle provider with the highest priority
+        Security.insertProviderAt(new BouncyCastleProvider(), 1);
 
-        // Load keystore
+        // Load keystore using default provider (which will now be BC)
         KeyStore ks = KeyStore.getInstance("PKCS12");
         try (FileInputStream in = new FileInputStream(keystoreFile)) {
             ks.load(in, keystorePassword.toCharArray());
