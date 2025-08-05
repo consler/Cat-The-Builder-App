@@ -8,11 +8,20 @@
     <string name="your_catrobat">Ваш .catrobat</string>
     <string name="build_app">Начать стройку</string>
     <string name="version_code">Код версии(должно быть целым числом)</string>
-    <string name="copying_assets_to_cache">Копируем нужные файлы в кеш...</string>
-    <string name="building_apk">Строим приложение...</string>
-    <string name="updating_android_manifest">Обновлям AndroidManifest...</string>
+    <string name="copying_assets_to_cache">Копируем нужные файлы в кеш…</string>
+    <string name="building_apk">Строим приложение…</string>
+    <string name="updating_android_manifest">Обновлям AndroidManifest…</string>
     <string name="apk_installed">Приложение установлено</string>
     <string name="imported_icon">Иконка импортирована</string>
     <string name="catrobat_imported">.catrobat импортирован</string>
     <string name="invalid_icon">Недействитильная иконка выбрана</string>
+    <string name="app_name_empty">Пустое имя!</string>
+    <string name="package_empty">Пустой пакет!</string>
+    <string name="version_empty">Пустая версия!</string>
+    <string name="version_code_empty">Пустой код версии!</string>
+    <string name="catrobat_not_chosen">.catrobat не выбран!</string>
+    <string name="icon_not_chosen">Иконка не выбрана!</string>
+    <string name="invalid_version_code">Недействительный код версии</string>
+    <string name="file_chosen_not_catrobat">Выбранный файл не .catrobat</string>
+    <string name="invalid_package">Недействитильный пакет</string>
 </resources>
