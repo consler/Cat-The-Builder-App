@@ -69,25 +69,24 @@ public class MainActivity extends AppCompatActivity
                 // cleaning
                 new File(getCacheDir(), "CATGAME.apk").delete();
                 new File(getCacheDir(),  Build.get_apk_name()).delete();
+                FilePicker.getIcon().delete();
 
                 Build.is_running = false;
             }
             catch (Exception e)
             {
-                Log.d("MainActivity", "error");
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
             finally
             {
                 // cleaning
                 new File(getCacheDir(), "CATGAME.apk").delete();
                 new File(getCacheDir(),  Build.get_apk_name()).delete();
+                FilePicker.getIcon().delete();
 
                 Build.is_running = false;
             }
-
         }
-
     }
 
 }

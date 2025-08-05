@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.android.apksig.apk.ApkFormatException;
 import my.consler.catthebuilder.R;
 import my.consler.catthebuilder.utils.*;
 
@@ -33,11 +32,9 @@ public class Build
             {
                 Looper.prepare();
                 is_running = true;
-
                 Log.d(tag, "Starting build");
 
                 set_apk_name(app_name);
-
                 try
                 {
                     if (! new File(context.getCacheDir(), "CATGAME").exists()) // only copy assets if not already done
@@ -88,30 +85,18 @@ public class Build
                 }
 
                 // copying the keystore to cache
-                Assets.copyAssetToCache(context, "ks.p12");
                 File keystore = new File(context.getCacheDir(), "ks.p12");
+                if(!keystore.exists()) Assets.copyAssetToCache(context, "ks.p12");
 
                 File catgame = new File(context.getCacheDir(), "CATGAME.apk"); //apk to be signed
 
                 action.setText(context.getString(R.string.updating_android_manifest));
-                try
-                {
-                    Manifest.change(catgame, package_name, app_name, app_version, version_code, context); // updating manifest to match the user's preference
-                }
-                catch (IOException | ApkFormatException e)
-                {
-                    throw new RuntimeException(e);
-                }
+                Manifest.change(catgame, package_name, app_name, app_version, version_code); // updating manifest to match the user's preference
 
                 File out_game = new File(context.getCacheDir(), apk_name); // the output apk
-                try
-                {
-                    Sign.sign(catgame, out_game, keystore, "password", "cert2", "password"); // signing
-                }
-                catch (Exception e)
-                {
-                    throw new RuntimeException(e);
-                }
+
+                Signer.sign(catgame, out_game, keystore, "password", "cert2", "password"); // signing
+
                 Log.d("Build.java", "Signed APK size: " + out_game.length());
 
                 ((Activity) context).runOnUiThread(() -> Export.shareFile( context, out_game)); // exporting the file
@@ -120,9 +105,6 @@ public class Build
 
                 Log.d(tag, "Done!");
             }).start();
-
         }
-
     }
-
 }

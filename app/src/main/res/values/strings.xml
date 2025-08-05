@@ -14,5 +14,14 @@
     <string name="imported_icon">Icon imported</string>
     <string name="catrobat_imported">Imported .catrobat</string>
     <string name="invalid_icon">Invalid icon chosen</string>
+    <string name="app_name_empty">App name is empty!</string>
+    <string name="package_empty">Package is empty!</string>
+    <string name="version_empty">Version is empty!</string>
+    <string name="version_code_empty">Version code is empty!</string>
+    <string name="catrobat_not_chosen">.catrobat not chosen!</string>
+    <string name="icon_not_chosen">Icon not chosen!</string>
+    <string name="invalid_version_code">Invalid version code</string>
+    <string name="file_chosen_not_catrobat">Chosen file is not .catrobat</string>
+    <string name="invalid_package">Invalid package!</string>
 
 </resources>

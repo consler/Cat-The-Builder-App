@@ -1,7 +1,6 @@
 package my.consler.catthebuilder.utils;
 
-import android.content.Context;
-import com.android.apksig.apk.ApkFormatException;
+import android.util.Log;
 import com.reandroid.apk.ApkModule;
 import com.reandroid.app.AndroidManifest;
 import com.reandroid.arsc.chunk.xml.AndroidManifestBlock;
@@ -10,15 +9,23 @@ import java.io.*;
 
 public class Manifest
 {
-    public static void change(File apk_file, String package_name, String app_name, String version, String version_code, Context context) throws IOException, ApkFormatException
+    public static void change(File apk_file, String package_name, String app_name, String version, String version_code)
     {
         if (!apk_file.exists() || !apk_file.isFile())
         {
-            throw new IOException("The specified file does not exist or is not a valid file.");
+            Log.wtf("Manifest", "Invalid apk file given?");
         }
-        ApkModule apk = ApkModule.loadApkFile(apk_file);
-        AndroidManifestBlock manifest = apk.getAndroidManifest();
+        ApkModule apk;
+        try
+        {
+            apk = ApkModule.loadApkFile(apk_file);
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
 
+        AndroidManifestBlock manifest = apk.getAndroidManifest();
         manifest.setPackageName(package_name);
         manifest.setApplicationLabel(app_name);
         manifest.setVersionName(version);
@@ -28,7 +35,15 @@ public class Manifest
         manifest = change_providers(manifest, package_name);
 
         apk.setManifest( manifest);
-        apk.writeApk( apk_file);
+
+        try
+        {
+            apk.writeApk( apk_file);
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
 
     }
 

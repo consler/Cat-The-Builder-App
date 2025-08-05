@@ -9,6 +9,7 @@ import my.consler.catthebuilder.R;
 import android.view.View;
 
 import java.io.File;
+import java.util.Objects;
 
 public class BuildButton implements View.OnClickListener
 {
@@ -17,7 +18,6 @@ public class BuildButton implements View.OnClickListener
     public BuildButton(Context context)
     {
         this.context = context;
-
     }
 
     @Override
@@ -32,47 +32,38 @@ public class BuildButton implements View.OnClickListener
 
         TextView action = activity.findViewById(R.id.action);
 
-        if (app_name_input.getText().toString().isEmpty())
+        String package_regex = "(?![0-9])([a-zA-Z_][a-zA-Z0-9_]*(\\.[a-zA-Z_][a-zA-Z0-9_]*)+)$";
+        if (Objects.requireNonNull(app_name_input.getText()).toString().isEmpty())
         {
-            Toast.makeText(context, "App name is empty", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, context.getString(R.string.app_name_empty), Toast.LENGTH_SHORT).show();
         }
-        else if (package_input.getText().toString().isEmpty())
+        else if (Objects.requireNonNull(package_input.getText()).toString().isEmpty())
         {
-            Toast.makeText(context, "Package is empty", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, context.getString(R.string.package_empty), Toast.LENGTH_SHORT).show();
         }
-//        TODO: ADD A REGEX
-//        else if (!(package_input.getText().toString().matches("")))
-//        {
-//            Toast.makeText(context, "Invalid package", Toast.LENGTH_SHORT).show();
-
-//        }
-        else if (version_input.getText().toString().isEmpty())
+        else if (!(package_input.getText().toString().matches(package_regex)))
         {
-            Toast.makeText(context, "Version is empty", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, context.getString(R.string.invalid_package), Toast.LENGTH_SHORT).show();
+        }
+        else if (Objects.requireNonNull(version_input.getText()).toString().isEmpty())
+        {
+            Toast.makeText(context, context.getString(R.string.version_empty), Toast.LENGTH_SHORT).show();
+        }
+        else if (Objects.requireNonNull(version_code_input.getText()).toString().isEmpty())
+        {
+            Toast.makeText(context, context.getString(R.string.version_code_empty), Toast.LENGTH_SHORT).show();
         }
         else if (! new File(context.getCacheDir(), "CATGAME.catrobat").exists())
         {
-            Toast.makeText(context, "Catrobat file was never chosen", Toast.LENGTH_SHORT).show();
-
-        }
-        else if (version_code_input.getText().toString().isEmpty())
-        {
-            Toast.makeText(context, "Version code is empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getString(R.string.catrobat_not_chosen), Toast.LENGTH_SHORT).show();
         }
         else if (FilePicker.getIcon() == null)
         {
-            Toast.makeText(context, "Icon not chosen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getString(R.string.icon_not_chosen), Toast.LENGTH_SHORT).show();
         }
         else if (!validate_version_code( version_code_input.getText().toString()))
         {
-            Toast.makeText(context, "Version code is not a valid number", Toast.LENGTH_SHORT).show();
-        }
-        else if (! new File(context.getCacheDir(), "CATGAME.catrobat").getName().endsWith(".catrobat"))
-        {
-            Toast.makeText(context, "File chosen is not a Catrobat file", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, context.getString(R.string.invalid_version_code), Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -86,15 +77,11 @@ public class BuildButton implements View.OnClickListener
         {
             Integer.parseInt(version_code);
             return true;
-
         }
         catch (NumberFormatException e)
         {
             return false;
-
         }
-
     }
-
 
 }

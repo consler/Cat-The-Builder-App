@@ -35,12 +35,10 @@ dependencies {
     implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
-    implementation libs.rxjava
-    implementation libs.zip4j
     implementation libs.commons.io
     implementation libs.apksig
     implementation libs.arsclib
-    implementation 'org.bouncycastle:bcprov-jdk18on:1.81'
+    implementation libs.bcprov.jdk18on
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core

@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import my.consler.catthebuilder.R;
@@ -37,32 +36,35 @@ public class FilePicker implements View.OnClickListener
         ComponentActivity activity = (ComponentActivity) context;
         pickLauncher = activity.registerForActivityResult(
                 new ActivityResultContracts.OpenDocument(),
-                new ActivityResultCallback<Uri>()
-                {
-                    @Override
-                    public void onActivityResult(Uri uri)
+                uri -> {
+                    if (uri != null)
                     {
-                        if (uri != null)
-                        {
-                            Log.d("filepicker", uri.toString() );
+                        Log.d("filepicker", uri.toString() );
 
-                            if(id == R.id.file_picker_button)
+                        if(id == R.id.file_picker_button)
+                        {
+                            String catrobat_name = copyUriToCache(uri, "catrobat");
+                            if(catrobat_name.endsWith(".catrobat"))
                             {
-                                copyUriToCache(uri, "catrobat");
                                 Toast.makeText(context, context.getString(R.string.catrobat_imported), Toast.LENGTH_SHORT).show();
                             }
-                            else if(id == R.id.icon_button)
+                            else
                             {
-                                String icon_name = copyUriToCache(uri, "icon");
-                                if(icon != null)
-                                {
-                                    Toast.makeText(context, context.getString(R.string.imported_icon), Toast.LENGTH_SHORT).show();
-                                }
-                                else
-                                {
-                                    new File(context.getCacheDir(), icon_name).delete();
-                                    Toast.makeText(context, context.getString(R.string.invalid_icon), Toast.LENGTH_SHORT).show();
-                                }
+                                new File(context.getCacheDir(), "CATGAME.catrobat").delete();
+                                Toast.makeText(context, context.getString(R.string.file_chosen_not_catrobat), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else if(id == R.id.icon_button)
+                        {
+                            String icon_name = copyUriToCache(uri, "icon");
+                            if(icon != null)
+                            {
+                                Toast.makeText(context, context.getString(R.string.imported_icon), Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                new File(context.getCacheDir(), icon_name).delete();
+                                Toast.makeText(context, context.getString(R.string.invalid_icon), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -110,10 +112,6 @@ public class FilePicker implements View.OnClickListener
             }
             else if (s.equals("icon"))
             {
-                new File(context.getCacheDir(), "icon.png").delete();
-                new File(context.getCacheDir(), "icon.jpg").delete();
-                new File(context.getCacheDir(), "icon.webp").delete();
-
                 if (file_name.endsWith(".jpg") || file_name.endsWith(".jpeg"))
                 {
                     new File(context.getCacheDir(), file_name).renameTo(new File(context.getCacheDir(), "icon.jpg"));
