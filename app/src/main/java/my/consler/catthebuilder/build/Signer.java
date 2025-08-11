@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.utils;
+package my.consler.catthebuilder.build;
 
 import com.android.apksig.ApkSigner;
 import com.android.apksig.ApkSigner.SignerConfig;

@@ -24,4 +24,10 @@
     <string name="invalid_version_code">Недействительный код версии</string>
     <string name="file_chosen_not_catrobat">Выбранный файл не .catrobat</string>
     <string name="invalid_package">Недействитильный пакет</string>
+    <string name="advanced_build_options_closed">> Дополнительные настройки</string>
+    <string name="advanced_build_options_open">v Дополнительный настройки</string>
+    <string name="debuggable">"Сделать отлаживаемым "</string>
+    <string name="custom_round_icon">Использовать свою круглую иконку</string>
+    <string name="auto_resize_round_icon">Изменить размер круглой иконки автоматически</string>
+    <string name="use_adaptive_icon">Использовать adaptive icon</string>
 </resources>

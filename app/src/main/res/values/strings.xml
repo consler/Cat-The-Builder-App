@@ -23,5 +23,11 @@
     <string name="invalid_version_code">Invalid version code</string>
     <string name="file_chosen_not_catrobat">Chosen file is not .catrobat</string>
     <string name="invalid_package">Invalid package!</string>
+    <string name="advanced_build_options_closed">> Advanced build options</string>
+    <string name="advanced_build_options_open">v Advanced build options</string>
+    <string name="debuggable">Debuggable</string>
+    <string name="custom_round_icon">Use custom round icon</string>
+    <string name="auto_resize_round_icon">Resize round icon automatically</string>
+    <string name="use_adaptive_icon">Use adaptive icon</string>
 
 </resources>

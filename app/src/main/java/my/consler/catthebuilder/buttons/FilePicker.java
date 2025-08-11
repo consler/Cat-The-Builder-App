@@ -31,7 +31,6 @@ public class FilePicker implements View.OnClickListener
         if (!(context instanceof ComponentActivity))
         {
             throw new IllegalArgumentException("Context must be a ComponentActivity");
-
         }
         ComponentActivity activity = (ComponentActivity) context;
         pickLauncher = activity.registerForActivityResult(
@@ -86,7 +85,10 @@ public class FilePicker implements View.OnClickListener
     {
         return icon;
     }
-
+    public static void nullifyIcon()
+    {
+        icon = null;
+    }
     private String copyUriToCache(Uri uri, String s)
     {
         String fileName = queryFileName(uri);
