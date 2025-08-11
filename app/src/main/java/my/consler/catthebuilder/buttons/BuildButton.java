@@ -2,6 +2,8 @@ package my.consler.catthebuilder.buttons;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
@@ -31,6 +33,10 @@ public class BuildButton implements View.OnClickListener
         TextInputEditText version_code_input = activity.findViewById(R.id.version_code);
 
         TextView action = activity.findViewById(R.id.action);
+
+        CheckBox debug = ((Activity) context).findViewById(R.id.debug_option);
+        CheckBox round_icon_is_resizable = ((Activity) context).findViewById(R.id.auto_resizable_round_icon_option);
+        CheckBox use_adaptive_icon = ((Activity) context).findViewById(R.id.use_adaptive_icon_option);
 
         String package_regex = "(?![0-9])([a-zA-Z_][a-zA-Z0-9_]*(\\.[a-zA-Z_][a-zA-Z0-9_]*)+)$";
         if (Objects.requireNonNull(app_name_input.getText()).toString().isEmpty())
@@ -67,7 +73,7 @@ public class BuildButton implements View.OnClickListener
         }
         else
         {
-            my.consler.catthebuilder.build.Build.start(context, app_name_input.getText().toString(), package_input.getText().toString(), version_input.getText().toString(), version_code_input.getText().toString(), action);
+            my.consler.catthebuilder.build.Build.start(context, app_name_input.getText().toString(), package_input.getText().toString(), version_input.getText().toString(), version_code_input.getText().toString(), action, debug.isChecked(), round_icon_is_resizable.isChecked(), use_adaptive_icon.isChecked());
         }
     }
 

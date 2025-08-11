@@ -4,20 +4,17 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
-import android.provider.OpenableColumns;
 import android.util.Log;
-import android.widget.Toast;
-import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
 import java.io.*;
 
 
-public class Export
+public class Exporter
 {
-    public static void shareFile(Context context, File file) {
+    public static void export(Context context, File file)
+    {
         if (!file.exists() || file.length() == 0) {
             // Handle the error: file does not exist or is empty
             Log.d( "ApkInstaller", "File does not exist or is empty");

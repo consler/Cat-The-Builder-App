@@ -6,7 +6,8 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.zip.*;
 
-public class Zip {
+public class Zip
+{
 
     private static final String TAG = "Zip";
 

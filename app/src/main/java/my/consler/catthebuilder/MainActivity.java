@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.widget.Button;
+import android.widget.CheckBox;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,12 +13,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import my.consler.catthebuilder.build.Build;
+import my.consler.catthebuilder.buttons.AdvancedBuildOptionsButton;
 import my.consler.catthebuilder.buttons.BuildButton;
 import my.consler.catthebuilder.buttons.FilePicker;
 
 import java.io.File;
 import java.io.OutputStream;
 import java.nio.file.Files;
+
+import static android.view.View.GONE;
 
 
 public class MainActivity extends AppCompatActivity
@@ -45,6 +49,13 @@ public class MainActivity extends AppCompatActivity
         Button icon_button = findViewById(R.id.icon_button);
         icon_button.setOnClickListener(new FilePicker(this));
 
+        Button advanced_build_button = findViewById(R.id.advanced_build_button);
+        advanced_build_button.setOnClickListener(new AdvancedBuildOptionsButton(this));
+
+        ((CheckBox) findViewById(R.id.auto_resizable_round_icon_option)).setChecked(true);
+        ((CheckBox) findViewById(R.id.use_adaptive_icon_option)).setChecked(true);
+
+        findViewById(R.id.more_build_options).setVisibility(GONE);
     }
 
     @Override
@@ -62,16 +73,9 @@ public class MainActivity extends AppCompatActivity
                     return;
                 }
                 OutputStream stream = getContentResolver().openOutputStream(data.getData());
-                File apk = new File(getCacheDir(), Build.get_apk_name());
+                File apk = new File(getCacheDir(), Build.getApkName());
                 Files.copy(apk.toPath(), stream);
                 if (stream != null) stream.close();
-
-                // cleaning
-                new File(getCacheDir(), "CATGAME.apk").delete();
-                new File(getCacheDir(),  Build.get_apk_name()).delete();
-                FilePicker.getIcon().delete();
-
-                Build.is_running = false;
             }
             catch (Exception e)
             {
@@ -81,9 +85,10 @@ public class MainActivity extends AppCompatActivity
             {
                 // cleaning
                 new File(getCacheDir(), "CATGAME.apk").delete();
-                new File(getCacheDir(),  Build.get_apk_name()).delete();
+                new File(getCacheDir(),  Build.getApkName()).delete();
                 FilePicker.getIcon().delete();
-
+                new File(getCacheDir(), "round_icon.png").delete();
+                FilePicker.nullifyIcon();
                 Build.is_running = false;
             }
         }
