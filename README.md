@@ -17,6 +17,7 @@ App to build .apk from .catrobat(pocket code projects)
 * **[EN]** [Telegram](https://t.me/CatTheBuilder)
 * **[RU]** [Telegram](https://t.me/WikiPocketCode), [Discord](https://discord.gg/wavBWGudrj)
 
+## Feature comparison
 | Features               | Cat The Builder | CBuilder | Manual APK editing |
 |------------------------|-----------------|----------|--------------------|
 | Newest version support | ✅               | ❌        | ✅                  |
@@ -40,5 +41,15 @@ App to build .apk from .catrobat(pocket code projects)
 * Discord: @consler
 * Email: consler2000@gmail.com
 
+## How it works
+* When you press "Build", the app copies a folder called CATGAME from the assets folder to the cache directory.
+* * CATGAME.apk is a fork of Pocket Code that skips the main menu and loads the project right away (source code can be found at https://github.com/consler/CATGAME).
+* * The CATGAME folder is simply an unzipped CATGAME (you can rename any .apk to .zip and extract it like a normal archive).
+* The app then copies your .catrobat file and extracts it to CATGAME/assets/CATGAME, because that's the folder CATGAME loads (.catrobat files are also renamed zip archives with your project data).
+* After that, Cat The Builder replaces the default icon with your custom icon.
+* Then it zips the CATGAME folder and saves it to the cache directory as CATGAME.apk.
+* It uses ARSCLib to change the app name, package name, version name, and version code.
+* Finally, it signs the apk and exports it onto your phone's storage.
+
 ## License
-![GNU AGPL v3.0](https://img.shields.io/github/license/consler/Cat-the-Builder-App)
+![GNU AGPL v3.0](https://img.shields.io/github/license/consler/Cat-The-Builder-App)

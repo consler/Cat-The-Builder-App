@@ -35,8 +35,6 @@ public class Manifest
             ResXmlElement a = manifest.getApplicationElement();
             ResXmlAttribute b =a.searchAttributeByResourceId(AndroidManifest.ID_roundIcon);
             b.setValueAsHex(0x7f080292);
-            Log.d("YO2", a.toString());
-
             manifest.setPackageName(package_name);
             manifest.setApplicationLabel(app_name);
             manifest.setVersionName(version);

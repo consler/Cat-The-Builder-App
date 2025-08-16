@@ -35,7 +35,8 @@ public class FilePicker implements View.OnClickListener
         ComponentActivity activity = (ComponentActivity) context;
         pickLauncher = activity.registerForActivityResult(
                 new ActivityResultContracts.OpenDocument(),
-                uri -> {
+                uri ->
+                {
                     if (uri != null)
                     {
                         Log.d("filepicker", uri.toString() );

@@ -2,7 +2,6 @@ package my.consler.catthebuilder.buttons;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,7 +66,7 @@ public class BuildButton implements View.OnClickListener
         {
             Toast.makeText(context, context.getString(R.string.icon_not_chosen), Toast.LENGTH_SHORT).show();
         }
-        else if (!validate_version_code( version_code_input.getText().toString()))
+        else if (!isVersionCodeValid( version_code_input.getText().toString()))
         {
             Toast.makeText(context, context.getString(R.string.invalid_version_code), Toast.LENGTH_SHORT).show();
         }
@@ -77,7 +76,7 @@ public class BuildButton implements View.OnClickListener
         }
     }
 
-    public static boolean validate_version_code(String version_code)
+    public static boolean isVersionCodeValid(String version_code)
     {
         try
         {

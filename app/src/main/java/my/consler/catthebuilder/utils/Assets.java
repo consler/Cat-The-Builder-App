@@ -12,37 +12,33 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class Assets {
+public class Assets //ngl this is ai generated
+{
     private static final String TAG = "AssetsCopier";
-
-    /**
-     * Copy entire folder recursively from assets into cacheDir.
-     *
-     * @param context       your Activity or Application context
-     * @param assetFolder   the path under /assets (e.g. "", or "data/images")
-     * @param threadCount   number of parallel copy threads
-     * @throws IOException          if we fail to read the asset tree
-     * @throws InterruptedException if we’re interrupted waiting for copy tasks
-     */
-    public static void copyFolderFromAssets(
-            Context context,
-            String assetFolder,
-            int threadCount
-    ) throws IOException, InterruptedException {
+    public static void copyFolderFromAssets(Context context, String assetFolder, int threadCount)
+    {
         AssetManager am = context.getAssets();
         File targetRoot = context.getCacheDir(); // or getFilesDir(), etc.
 
-        // Create thread pool
+        // Create the thread pool
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);
 
         // Kick off recursive copy
-        copyAssetFolderRecursive(am, assetFolder, new File(targetRoot, assetFolder), executor, context);
+        try {
+            copyAssetFolderRecursive(am, assetFolder, new File(targetRoot, assetFolder), executor, context);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         // No more tasks
         executor.shutdown();
         // Wait (tunable timeout) for tasks to finish
-        if (!executor.awaitTermination(5, TimeUnit.MINUTES)) {
-            Log.w(TAG, "Timed out waiting for asset copy to complete");
+        try {
+            if (!executor.awaitTermination(5, TimeUnit.MINUTES)) {
+                Log.w(TAG, "Timed out waiting for asset copy to complete");
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -81,13 +77,8 @@ public class Assets {
     /**
      * Schedule a single file‐copy from assets to disk.
      */
-    private static void scheduleFileCopy(
-            AssetManager am,
-            String assetFilePath,
-            File outFile,
-            ExecutorService executor,
-            Context ctx
-    ) {
+    private static void scheduleFileCopy(AssetManager am, String assetFilePath, File outFile, ExecutorService executor, Context ctx)
+    {
         executor.submit(() -> {
             try (InputStream in = am.open(assetFilePath);
                  FileOutputStream out = new FileOutputStream(outFile)) {
@@ -102,7 +93,8 @@ public class Assets {
         });
     }
 
-    public static File copyAssetToCache(Context context, String assetName) {
+    public static File copyAssetToCache(Context context, String assetName)
+    {
         AssetManager assetManager = context.getAssets();
         File outFile = new File(context.getCacheDir(), assetName);
 
@@ -110,7 +102,7 @@ public class Assets {
         File parent = outFile.getParentFile();
         if (parent != null && !parent.exists()) {
             if (!parent.mkdirs()) {
-                // failed to create directory
+                // failed to create a directory
                 return null;
             }
         }

@@ -15,10 +15,7 @@ public class Exporter
 {
     public static void export(Context context, File file)
     {
-        if (!file.exists() || file.length() == 0) {
-            // Handle the error: file does not exist or is empty
-            Log.d( "ApkInstaller", "File does not exist or is empty");
-        }
+        if (!file.exists() || file.length() == 0) Log.d( "ApkInstaller", "File does not exist or is empty");
 
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
