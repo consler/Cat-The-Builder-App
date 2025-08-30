@@ -5,12 +5,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
-
 import my.consler.catthebuilder.R;
 import my.consler.catthebuilder.utils.*;
-
 import java.io.*;
-
 
 public class Build
 {
@@ -25,10 +22,7 @@ public class Build
 
     public static void start(Context context, String app_name, String package_name, String app_version, String version_code, TextView action, boolean is_debuggable, boolean auto_resize_round_icon_option, boolean use_adaptive_icon)
     {
-        if(is_running)
-        {
-            return;
-        }
+        if(is_running) return;
         action.setVisibility(TextView.VISIBLE);
         new Thread(() ->
         {
@@ -36,7 +30,6 @@ public class Build
             Looper.prepare();
 
             Log.d(tag, "Starting build");
-
 
             setApkName(app_name);
 

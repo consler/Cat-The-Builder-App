@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cat The Builder</string>
+    <string name="your_app_name">Назва додатку</string>
+    <string name="your_package_name">Назва пакету(наприклад my.test.app)</string>
+    <string name="your_version">Версія додатку(наприклад v1.0.5)</string>
+    <string name="your_icon">Піктограма додатку</string>
+    <string name="your_catrobat">Ваш .catrobat</string>
+    <string name="build_app">Збудувати</string>
+    <string name="version_code">Код версії(повинно бути цілим числом)</string>
+    <string name="copying_assets_to_cache">Копіювання ресурсів у кеш…</string>
+    <string name="building_apk">Будівля додатку…</string>
+    <string name="updating_android_manifest">Оновлення AndroidManifest…</string>
+    <string name="apk_installed">Додакток завантажен!</string>
+    <string name="imported_icon">Піктограма імпортована</string>
+    <string name="catrobat_imported">.catrobat імортован</string>
+    <string name="invalid_icon">Недійсна іконка!</string>
+    <string name="app_name_empty">Порожня назва!</string>
+    <string name="package_empty">Порожній пакет!</string>
+    <string name="version_empty">Порожня версія!</string>
+    <string name="version_code_empty">Порожній код версії!</string>
+    <string name="catrobat_not_chosen">.catrobat не вибран!</string>
+    <string name="icon_not_chosen">Піктограма не вибрана!</string>
+    <string name="invalid_version_code">Недійсний код версії!</string>
+    <string name="file_chosen_not_catrobat">Вибраний файл не є .catrobat</string>
+    <string name="invalid_package">Недійсний пакет!</string>
+    <string name="advanced_build_options_closed">> Додаткові налаштування будівлі</string>
+    <string name="advanced_build_options_open">v Додаткові налаштування будівлі</string>
+    <string name="debuggable">З можливостю налагодження</string>
+    <string name="custom_round_icon">Використовувати власну круглу піктограму</string>
+    <string name="auto_resize_round_icon">Автоматично змінити розмір круглої іконки</string>
+    <string name="use_adaptive_icon">Використовувати adaprive icon</string>
+</resources>

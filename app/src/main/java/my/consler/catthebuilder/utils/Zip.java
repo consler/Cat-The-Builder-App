@@ -36,7 +36,8 @@ public class Zip // this is ai generated
                     throw new UncheckedIOException(ex);
                 }
             });
-        } catch (UncheckedIOException | IOException e)
+        }
+        catch (UncheckedIOException | IOException e)
         {
             Log.e(TAG, "zipFolderContentsStored failed", e.getCause());
             throw new RuntimeException(e);
@@ -48,10 +49,7 @@ public class Zip // this is ai generated
     {
         Log.d(TAG, "unzip(): " + zipFilePath + " -> " + destDirPath);
         File destDir = new File(destDirPath);
-        if (!destDir.exists() && !destDir.mkdirs())
-        {
-            throw new RuntimeException("Cannot create dest dir: " + destDirPath);
-        }
+        if (!destDir.exists() && !destDir.mkdirs()) throw new RuntimeException("Cannot create dest dir: " + destDirPath);
 
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFilePath)))
         {
@@ -99,7 +97,8 @@ public class Zip // this is ai generated
         return outFile;
     }
 
-    private static class EntryMeta {
+    private static class EntryMeta
+    {
         final byte[] data;
         final long   size;
         final long   crc;
