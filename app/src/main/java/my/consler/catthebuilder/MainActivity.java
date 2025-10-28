@@ -16,6 +16,7 @@ import my.consler.catthebuilder.build.Build;
 import my.consler.catthebuilder.buttons.AdvancedBuildOptionsButton;
 import my.consler.catthebuilder.buttons.BuildButton;
 import my.consler.catthebuilder.buttons.FilePicker;
+import my.consler.catthebuilder.utils.VersionCheck;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        VersionCheck.check_version(this);
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
