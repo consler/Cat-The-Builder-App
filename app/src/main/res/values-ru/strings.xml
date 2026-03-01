@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">" Кот строитель"</string>
+    <string name="app_name">Кот Строитель</string>
     <string name="your_app_name">Имя приложения</string>
     <string name="your_package_name">Имя пакета(к примеру my.test.app)</string>
     <string name="your_version">Версия приложения(к примеру v1.0.5)</string>
@@ -11,7 +11,7 @@
     <string name="copying_assets_to_cache">Копируем нужные файлы в кеш…</string>
     <string name="building_apk">Строим приложение…</string>
     <string name="updating_android_manifest">Обновлям AndroidManifest…</string>
-    <string name="apk_installed">Приложение установлено</string>
+    <string name="apk_installed">Приложение установлено!</string>
     <string name="imported_icon">Иконка импортирована</string>
     <string name="catrobat_imported">.catrobat импортирован</string>
     <string name="invalid_icon">Недействитильная иконка выбрана</string>
@@ -30,4 +30,6 @@
     <string name="custom_round_icon">Использовать свою круглую иконку</string>
     <string name="auto_resize_round_icon">Изменить размер круглой иконки автоматически</string>
     <string name="use_adaptive_icon">Использовать adaptive icon</string>
+    <string name="language_is">"Язык: "</string>
+    <string name="credits">Кредиты</string>
 </resources>

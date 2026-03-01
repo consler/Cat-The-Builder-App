@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.utils;
+package my.consler.catthebuilder.util;
 
 import android.util.Log;
 
@@ -6,7 +6,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.zip.*;
 
-public class Zip // this is ai generated
+public class ZipUtil // this is ai generated
 {
 
     private static final String TAG = "Zip";

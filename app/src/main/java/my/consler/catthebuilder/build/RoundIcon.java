@@ -3,7 +3,7 @@ package my.consler.catthebuilder.build;
 import android.content.Context;
 import android.graphics.*;
 import com.reandroid.archive.io.FileChannelOutputStream;
-import my.consler.catthebuilder.buttons.FilePicker;
+import my.consler.catthebuilder.button.FilePickerButton;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,9 +15,9 @@ public class RoundIcon
     public static boolean change(Context context, boolean auto_resize)
     {
         File old_icon = new File(context.getCacheDir(), "CATGAME/res/kS.png");
-        if (FilePicker.getIcon() == null) throw new RuntimeException();
+        if (FilePickerButton.getIcon() == null) throw new RuntimeException();
 
-        File icon = FilePicker.getIcon();
+        File icon = FilePickerButton.getIcon();
 
         if (auto_resize)
         {

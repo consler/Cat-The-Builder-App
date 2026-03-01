@@ -1,8 +1,8 @@
 # Cat-The-Builder-App
-App to build .apk from .catrobat(pocket code projects)
+App to build a .apk from .catrobat(pocket code projects)
 
 ## How to use
-<img src=art/ctb.jpg alt="screenshot" width="200">
+<img src=img/ctb.jpg alt="screenshot" width="200">
 
 * Download the app [here](https://github.com/consler/Cat-the-Builder-App/releases/latest).
 * Open the app.
@@ -13,9 +13,6 @@ App to build .apk from .catrobat(pocket code projects)
 * Click on "Your icon" and select your icon file (.png or .jpeg).
 * Click on "Your .catrobat" and select your .catrobat file (exported in pocket code)
 * Click "Build" and wait until the build is done.
-## Join the community!
-* **[EN]** [Telegram](https://t.me/CatTheBuilder)
-* **[RU]** [Telegram](https://t.me/WikiPocketCode), [Discord](https://discord.gg/wavBWGudrj)
 
 ## Feature comparison
 | Features               | Cat The Builder | CBuilder | Manual APK editing |
@@ -34,7 +31,8 @@ App to build .apk from .catrobat(pocket code projects)
 | Auto resize round icon | ✅               | ❌        | ❌                  |
 ## TO DO: 
 * **Optimize**
-* **Option to not use an adaptive icon**
+* **More languages**
+* **Theme settings**
 
 ## Contact me
 * Telegram: @onsler
@@ -50,6 +48,13 @@ App to build .apk from .catrobat(pocket code projects)
 * Then it zips the CATGAME folder and saves it to the cache directory as CATGAME.apk.
 * It uses ARSCLib to change the app name, package name, version name, and version code.
 * Finally, it signs the apk and exports it onto your phone's storage.
+
+## Note 
+* Cat The Builder is NOT affiliated with Pocket Code.
+* Cat The Builder is made for only Pocket Code projects.
+* Cat The Builder is developed by just one person, making the development process quite slow.
+* The project is close to a 1.0 release, and any bugs found should be reported.
+* If you are fluent in a language that's not English, Ukrainian, Russian or German and are willing to help to add it to Cat The Builder, please contact me.
 
 ## License
 ![GNU AGPL v3.0](https://img.shields.io/github/license/consler/Cat-The-Builder-App)

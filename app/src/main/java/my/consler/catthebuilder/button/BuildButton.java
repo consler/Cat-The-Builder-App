@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.buttons;
+package my.consler.catthebuilder.button;
 
 import android.app.Activity;
 import android.content.Context;
@@ -62,7 +62,7 @@ public class BuildButton implements View.OnClickListener
         {
             Toast.makeText(context, context.getString(R.string.catrobat_not_chosen), Toast.LENGTH_SHORT).show();
         }
-        else if (FilePicker.getIcon() == null)
+        else if (FilePickerButton.getIcon() == null)
         {
             Toast.makeText(context, context.getString(R.string.icon_not_chosen), Toast.LENGTH_SHORT).show();
         }

@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.utils;
+package my.consler.catthebuilder.helper;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -7,12 +7,11 @@ import android.util.Log;
 
 import java.io.*;
 
-public class VersionCheck
+public class VersionHelper
 {
     public static void check_version(Context context)
     {
         int version_code = getVersionCode(context);
-        Log.d("VersionChecker", "Current version: " + version_code);
 
         File version_file = new File(context.getFilesDir(), "version.txt");
         if(!version_file.exists())

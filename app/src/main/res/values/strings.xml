@@ -7,9 +7,9 @@
     <string name="your_catrobat">Your .catrobat</string>
     <string name="build_app">Build app</string>
     <string name="version_code">Your version code(must be a whole number)</string>
-    <string name="copying_assets_to_cache">Copying assets to cache...</string>
-    <string name="building_apk">Building app...</string>
-    <string name="updating_android_manifest">Updating AndroidManifest...</string>
+    <string name="copying_assets_to_cache">Copying assets to cache…</string>
+    <string name="building_apk">Building app…</string>
+    <string name="updating_android_manifest">Updating AndroidManifest…</string>
     <string name="apk_installed">App installed!</string>
     <string name="imported_icon">Icon imported</string>
     <string name="catrobat_imported">Imported .catrobat</string>
@@ -29,5 +29,11 @@
     <string name="custom_round_icon">Use custom round icon</string>
     <string name="auto_resize_round_icon">Resize round icon automatically</string>
     <string name="use_adaptive_icon">Use adaptive icon</string>
+    <string name="language_is">"Language: "</string>
+    <string name="english" translatable="false">English</string>
+    <string name="ukrainian" translatable="false">Українська</string>
+    <string name="russian" translatable="false">Русский</string>
+    <string name="german" translatable="false">Deutsch</string>
+    <string name="credits">Credits</string>
 
 </resources>

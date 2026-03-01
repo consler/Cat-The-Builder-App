@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cat The Builder</string>
+    <string name="app_name">Кіт Будівельник</string>
     <string name="your_app_name">Назва додатку</string>
     <string name="your_package_name">Назва пакету(наприклад my.test.app)</string>
     <string name="your_version">Версія додатку(наприклад v1.0.5)</string>
@@ -29,5 +29,7 @@
     <string name="debuggable">З можливостю налагодження</string>
     <string name="custom_round_icon">Використовувати власну круглу піктограму</string>
     <string name="auto_resize_round_icon">Автоматично змінити розмір круглої іконки</string>
-    <string name="use_adaptive_icon">Використовувати adaprive icon</string>
+    <string name="use_adaptive_icon">Використовувати adaptive icon</string>
+    <string name="language_is">"Мова: "</string>
+    <string name="credits">Кредити</string>
 </resources>

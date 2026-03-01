@@ -5,7 +5,7 @@ import android.util.Log;
 
 import java.io.File;
 
-public class AdaptiveIcon
+public class AdaptiveIcon // it will work in my dreams...
 {
     public static void delete(Context context)
     {

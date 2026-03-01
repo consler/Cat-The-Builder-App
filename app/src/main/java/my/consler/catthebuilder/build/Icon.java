@@ -2,7 +2,7 @@ package my.consler.catthebuilder.build;
 
 import android.content.Context;
 import android.util.Log;
-import my.consler.catthebuilder.buttons.FilePicker;
+import my.consler.catthebuilder.button.FilePickerButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +17,8 @@ public class Icon
         File old_icon = deleteAndReturnIcon(context);
         File old_icon_foreground = deleteAndReturnIconForeground(context);
 
-        if(FilePicker.getIcon() == null) return false;
-        File icon = FilePicker.getIcon();
+        if(FilePickerButton.getIcon() == null) return false;
+        File icon = FilePickerButton.getIcon();
 
         try
         {

@@ -2,6 +2,7 @@ package my.consler.catthebuilder.build;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 import com.reandroid.apk.ApkModule;
 import com.reandroid.app.AndroidManifest;
 import com.reandroid.arsc.chunk.xml.AndroidManifestBlock;
@@ -25,6 +26,7 @@ public class Manifest
         }
         catch (IOException e)
         {
+            Toast.makeText(context, "Invalid apk file given?", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
 
@@ -45,6 +47,7 @@ public class Manifest
         }
         catch (Exception e)
         {
+            Toast.makeText(context, "Something went wrong while updating the manifest", Toast.LENGTH_SHORT).show();
             context.getCacheDir().delete();
             throw new RuntimeException(e);
         }
@@ -57,6 +60,7 @@ public class Manifest
         }
         catch (IOException e)
         {
+            Toast.makeText(context, "Error during updating the APk", Toast.LENGTH_SHORT).show();
             throw new RuntimeException(e);
         }
     }

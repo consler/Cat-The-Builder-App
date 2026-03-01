@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.buttons;
+package my.consler.catthebuilder.button;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -19,13 +19,13 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 
-public class FilePicker implements View.OnClickListener
+public class FilePickerButton implements View.OnClickListener
 {
     private final Context context;
     private final ActivityResultLauncher<String[]> pickLauncher;
     private static int id;
 
-    public FilePicker(Context context)
+    public FilePickerButton(Context context)
     {
         this.context = context;
         if (!(context instanceof ComponentActivity))
@@ -39,8 +39,6 @@ public class FilePicker implements View.OnClickListener
                 {
                     if (uri != null)
                     {
-                        Log.d("filepicker", uri.toString() );
-
                         if(id == R.id.file_picker_button)
                         {
                             String catrobat_name = copyUriToCache(uri, "catrobat");

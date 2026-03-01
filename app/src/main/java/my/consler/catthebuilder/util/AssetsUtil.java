@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.utils;
+package my.consler.catthebuilder.util;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class Assets //ngl this is ai generated
+public class AssetsUtil //ngl this is ai generated
 {
     private static final String TAG = "AssetsCopier";
     public static void copyFolderFromAssets(Context context, String assetFolder, int threadCount)

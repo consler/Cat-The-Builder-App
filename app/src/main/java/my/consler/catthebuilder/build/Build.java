@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.TextView;
 import my.consler.catthebuilder.R;
-import my.consler.catthebuilder.utils.*;
+import my.consler.catthebuilder.util.*;
 import java.io.*;
 
 public class Build
@@ -37,7 +37,7 @@ public class Build
             if (!new File(context.getCacheDir(), "CATGAME").exists())
             {
                 action.setText( context.getString(R.string.copying_assets_to_cache));
-                Assets.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
+                AssetsUtil.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
                 Log.d(tag, "Assets copy done!");
             }
 
@@ -49,7 +49,7 @@ public class Build
 
             File catrobat_file = new File(context.getCacheDir(), "CATGAME.catrobat"); // the file to be unzipped
 
-            Zip.unzip(String.valueOf( catrobat_file.toPath()), String.valueOf( new File( context.getCacheDir(), "CATGAME/assets/CATGAME").toPath())); // unzipping the file so CATGAME could load it, this allows for a slightly faster loading speed than cbuilder
+            ZipUtil.unzip(String.valueOf( catrobat_file.toPath()), String.valueOf( new File( context.getCacheDir(), "CATGAME/assets/CATGAME").toPath())); // unzipping the file so CATGAME could load it, this allows for a slightly faster loading speed than cbuilder
 
             catrobat_file.delete(); // no point in having the catrobat file in the cache after unzipping
 
@@ -58,11 +58,11 @@ public class Build
             RoundIcon.change(context, auto_resize_round_icon_option);
             if(!use_adaptive_icon) AdaptiveIcon.delete(context);
 
-            Zip.zipFolder(String.valueOf( new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf( new File(context.getCacheDir(), "CATGAME.apk").toPath())); // using zip to make the apk because apktool takes too long
+            ZipUtil.zipFolder(String.valueOf( new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf( new File(context.getCacheDir(), "CATGAME.apk").toPath())); // using zip to make the apk because apktool takes too long
 
             // copying the keystore to cache
             File keystore = new File(context.getCacheDir(), "ks.p12");
-            if(!keystore.exists()) Assets.copyAssetToCache(context, "ks.p12");
+            if(!keystore.exists()) AssetsUtil.copyAssetToCache(context, "ks.p12");
 
             File catgame = new File(context.getCacheDir(), "CATGAME.apk"); //apk to be edited and signed
 
@@ -71,11 +71,11 @@ public class Build
 
             File out_game = new File(context.getCacheDir(), apk_name); // the output apk
 
-            Signer.sign(catgame, out_game, keystore, "password", "cert2", "password"); // signing
+            Signer.sign(catgame, out_game, keystore, "password", "cert2", "password", context); // signing
 
             Log.d("Build.java", "Signed APK size: " + out_game.length());
 
-            ((Activity) context).runOnUiThread(() -> Exporter.export( context, out_game)); // exporting the file
+            ((Activity) context).runOnUiThread(() -> ExporterUtil.export( context, out_game)); // exporting the file
 
             ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.apk_installed)));
 

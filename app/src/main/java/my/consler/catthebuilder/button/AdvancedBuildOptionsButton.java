@@ -1,4 +1,4 @@
-package my.consler.catthebuilder.buttons;
+package my.consler.catthebuilder.button;
 
 import android.app.Activity;
 import android.content.Context;
