@@ -22,64 +22,82 @@ public class Build
 
     public static void start(Context context, String app_name, String package_name, String app_version, String version_code, TextView action, boolean is_debuggable, boolean auto_resize_round_icon_option, boolean use_adaptive_icon)
     {
-        if(is_running) return;
-        action.setVisibility(TextView.VISIBLE);
-        new Thread(() ->
+        try
         {
-            is_running = true;
-            Looper.prepare();
-
-            Log.d(tag, "Starting build");
-
-            setApkName(app_name);
-
-            // copy assets to cache only if not already done
-            if (!new File(context.getCacheDir(), "CATGAME").exists())
+            if (is_running) return;
+            action.setVisibility(TextView.VISIBLE);
+            new Thread(() ->
             {
-                action.setText( context.getString(R.string.copying_assets_to_cache));
-                AssetsUtil.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
-                Log.d(tag, "Assets copy done!");
-            }
+                try
+                {
+                    is_running = true;
+                    Looper.prepare();
 
-            // build starts
-            ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.building_apk)));
+                    Log.d(tag, "Starting build");
 
-            new File(context.getCacheDir(), "CATGAME/assets/CATGAME").delete(); //deleting old user catrobat stuff
-            new File(context.getCacheDir(), "CATGAME/assets/CATGAME").mkdirs();
+                    setApkName(app_name);
 
-            File catrobat_file = new File(context.getCacheDir(), "CATGAME.catrobat"); // the file to be unzipped
+                    // copy assets to cache only if not already done
+                    if (!new File(context.getCacheDir(), "CATGAME").exists())
+                    {
+                        action.setText(context.getString(R.string.copying_assets_to_cache));
+                        AssetsUtil.copyFolderFromAssets(context, "CATGAME", Thread.activeCount());
+                        Log.d(tag, "Assets copy done!");
+                    }
 
-            ZipUtil.unzip(String.valueOf( catrobat_file.toPath()), String.valueOf( new File( context.getCacheDir(), "CATGAME/assets/CATGAME").toPath())); // unzipping the file so CATGAME could load it, this allows for a slightly faster loading speed than cbuilder
+                    // build starts
+                    ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.building_apk)));
 
-            catrobat_file.delete(); // no point in having the catrobat file in the cache after unzipping
+                    new File(context.getCacheDir(), "CATGAME/assets/CATGAME").delete(); //deleting old user catrobat stuff
+                    new File(context.getCacheDir(), "CATGAME/assets/CATGAME").mkdirs();
 
-            // icon stuff
-            Icon.change(context);
-            RoundIcon.change(context, auto_resize_round_icon_option);
-            if(!use_adaptive_icon) AdaptiveIcon.delete(context);
+                    File catrobat_file = new File(context.getCacheDir(), "CATGAME.catrobat"); // the file to be unzipped
 
-            ZipUtil.zipFolder(String.valueOf( new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf( new File(context.getCacheDir(), "CATGAME.apk").toPath())); // using zip to make the apk because apktool takes too long
+                    ZipUtil.unzip(String.valueOf(catrobat_file.toPath()), String.valueOf(new File(context.getCacheDir(), "CATGAME/assets/CATGAME").toPath())); // unzipping the file so CATGAME could load it, this allows for a slightly faster loading speed than cbuilder
 
-            // copying the keystore to cache
-            File keystore = new File(context.getCacheDir(), "ks.p12");
-            if(!keystore.exists()) AssetsUtil.copyAssetToCache(context, "ks.p12");
+                    catrobat_file.delete(); // no point in having the catrobat file in the cache after unzipping
 
-            File catgame = new File(context.getCacheDir(), "CATGAME.apk"); //apk to be edited and signed
+                    // icon stuff
+                    Icon.change(context);
+                    RoundIcon.change(context, auto_resize_round_icon_option);
+                    if (!use_adaptive_icon) AdaptiveIcon.delete(context);
 
-            ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.updating_android_manifest)));
-            Manifest.change(catgame, package_name, app_name, app_version, version_code, is_debuggable, context); // updating manifest to match the user's preference
+                    ZipUtil.zipFolder(String.valueOf(new File(context.getCacheDir(), "CATGAME").toPath()), String.valueOf(new File(context.getCacheDir(), "CATGAME.apk").toPath())); // using zip to make the apk because apktool takes too long
 
-            File out_game = new File(context.getCacheDir(), apk_name); // the output apk
+                    // copying the keystore to cache
+                    File keystore = new File(context.getCacheDir(), "ks.p12");
+                    if (!keystore.exists()) AssetsUtil.copyAssetToCache(context, "ks.p12");
 
-            Signer.sign(catgame, out_game, keystore, "password", "cert2", "password", context); // signing
+                    File catgame = new File(context.getCacheDir(), "CATGAME.apk"); //apk to be edited and signed
 
-            Log.d("Build.java", "Signed APK size: " + out_game.length());
+                    ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.updating_android_manifest)));
+                    Manifest.change(catgame, package_name, app_name, app_version, version_code, is_debuggable, context); // updating manifest to match the user's preference
 
-            ((Activity) context).runOnUiThread(() -> ExporterUtil.export( context, out_game)); // exporting the file
+                    File out_game = new File(context.getCacheDir(), apk_name); // the output apk
 
-            ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.apk_installed)));
+                    Signer.sign(catgame, out_game, keystore, "password", "cert2", "password", context); // signing
 
-            Log.d(tag, "Done!");
-        }).start();
+                    Log.d("Build.java", "Signed APK size: " + out_game.length());
+
+                    ((Activity) context).runOnUiThread(() -> ExporterUtil.export(context, out_game)); // exporting the file
+
+                    ((Activity) context).runOnUiThread(() -> action.setText(context.getString(R.string.apk_installed)));
+
+                    Log.d(tag, "Done!");
+                }
+                catch (Exception e)
+                {
+                    ErrorHandlerUtil.handle(context, e);
+                }
+                finally
+                {
+                    is_running = false;
+                }
+            }).start();
+        }
+        catch (Exception e)
+        {
+            ErrorHandlerUtil.handle(context, e);
+        }
     }
 }

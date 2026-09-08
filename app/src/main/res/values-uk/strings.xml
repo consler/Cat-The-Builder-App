@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Кіт Будівельник</string>
     <string name="your_app_name">Назва додатку</string>
-    <string name="your_package_name">Назва пакету(наприклад my.test.app)</string>
+    <string name="your_package_name">Назва пакету(наприклад com.example.app)</string>
     <string name="your_version">Версія додатку(наприклад v1.0.5)</string>
     <string name="your_icon">Піктограма додатку</string>
     <string name="your_catrobat">Ваш .catrobat</string>

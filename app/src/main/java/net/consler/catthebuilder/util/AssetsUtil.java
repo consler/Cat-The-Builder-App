@@ -3,6 +3,7 @@ package net.consler.catthebuilder.util;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
+import net.consler.catthebuilder.exception.BuildException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class AssetsUtil //ngl this is all ai generated
+public class AssetsUtil
 {
     private static final String TAG = "AssetsCopier";
     public static void copyFolderFromAssets(Context context, String assetFolder, int threadCount)
@@ -23,7 +24,7 @@ public class AssetsUtil //ngl this is all ai generated
 
         try
         {
-            copyAssetFolderRecursive(am, assetFolder, new File(targetRoot, assetFolder), executor);
+            copyAssetFolderRecursive(am, assetFolder, new File(targetRoot, assetFolder), executor, context);
         }
         catch (IOException e)
         {
@@ -45,12 +46,12 @@ public class AssetsUtil //ngl this is all ai generated
         }
     }
 
-    private static void copyAssetFolderRecursive(AssetManager am, String assetPath, File outDir, ExecutorService executor) throws IOException
+    private static void copyAssetFolderRecursive(AssetManager am, String assetPath, File outDir, ExecutorService executor, Context context) throws IOException
     {
         String[] children = am.list(assetPath);
         if (children == null || children.length == 0)
         {
-            scheduleFileCopy(am, assetPath, outDir, executor);
+            scheduleFileCopy(am, assetPath, outDir, executor, context);
         }
         else
         {
@@ -62,11 +63,11 @@ public class AssetsUtil //ngl this is all ai generated
             {
                 String childAssetPath = assetPath.isEmpty() ? child : assetPath + "/" + child;
                 File childOut = new File(outDir, child);
-                copyAssetFolderRecursive(am, childAssetPath, childOut, executor);
+                copyAssetFolderRecursive(am, childAssetPath, childOut, executor, context);
             }
         }
     }
-    private static void scheduleFileCopy(AssetManager am, String assetFilePath, File outFile, ExecutorService executor)
+    private static void scheduleFileCopy(AssetManager am, String assetFilePath, File outFile, ExecutorService executor, Context context)
     {
         executor.submit(() ->
         {
@@ -82,6 +83,7 @@ public class AssetsUtil //ngl this is all ai generated
             }
             catch (IOException e)
             {
+                ErrorHandlerUtil.handle(context, e);
                 Log.e(TAG, "Failed copying asset " + assetFilePath, e);
             }
         });
@@ -93,25 +95,23 @@ public class AssetsUtil //ngl this is all ai generated
         File outFile = new File(context.getCacheDir(), assetName);
 
         File parent = outFile.getParentFile();
-        if (parent != null && !parent.exists())
-        {
-            if (!parent.mkdirs())
-            {
-                return;
-            }
-        }
+        if (parent != null && !parent.exists() && !parent.mkdirs()) return;
 
         try (InputStream in = assetManager.open(assetName); FileOutputStream out = new FileOutputStream(outFile))
         {
             byte[] buffer = new byte[4 * 1024];
             int read;
-            while ((read = in.read(buffer)) != -1) {
+            while ((read = in.read(buffer)) != -1)
+            {
                 out.write(buffer, 0, read);
             }
             out.flush();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        }
+        catch (IOException e)
+        {
+            ErrorHandlerUtil.handle(context, e);
+            throw new BuildException(e.getMessage());
         }
     }
 }

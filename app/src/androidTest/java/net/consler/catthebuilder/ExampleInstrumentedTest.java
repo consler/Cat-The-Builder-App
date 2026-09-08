@@ -1,4 +1,4 @@
-package my.consler.catthebuilder;
+package net.consler.catthebuilder;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("my.consler.catthebuilder", appContext.getPackageName());
+        assertEquals("my.consler.net.consler.catthebuilder", appContext.getPackageName());
     }
 }

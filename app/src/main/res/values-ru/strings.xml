@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Кот Строитель</string>
     <string name="your_app_name">Имя приложения</string>
-    <string name="your_package_name">Имя пакета(к примеру my.test.app)</string>
+    <string name="your_package_name">Имя пакета(к примеру com.example.app)</string>
     <string name="your_version">Версия приложения(к примеру v1.0.5)</string>
     <string name="your_icon">Иконка приложения</string>
     <string name="your_catrobat">Ваш .catrobat</string>

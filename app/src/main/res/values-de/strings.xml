@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Cat Der Baumeister</string>
     <string name="your_app_name">Dein App Name</string>
-    <string name="your_package_name">Dein Paket Name(z.b. meine.dummy.app)</string>
+    <string name="your_package_name">Dein Paket Name(z.b. com.example.app)</string>
     <string name="your_version">Deine App Version(z.b. v1.0.5)</string>
     <string name="your_icon">Dein Icon</string>
     <string name="your_catrobat">Deine .catrobat Datei</string>
     <string name="build_app">App erstellen</string>
     <string name="version_code">Deine Version Nummer(muss eine ganze Zahl sein!)</string>
-    <string name="copying_assets_to_cache">Ressourcen werden in den Cache kopiert...</string>
-    <string name="building_apk">App wird erstellt...</string>
-    <string name="updating_android_manifest">AndroidManifest wird aktualisiert...</string>
+    <string name="copying_assets_to_cache">Ressourcen werden in den Cache kopiert…</string>
+    <string name="building_apk">App wird erstellt…</string>
+    <string name="updating_android_manifest">AndroidManifest wird aktualisiert…</string>
     <string name="apk_installed">App installiert!</string>
     <string name="imported_icon">Icon importiert!</string>
     <string name="catrobat_imported">.catrobat importiert</string>

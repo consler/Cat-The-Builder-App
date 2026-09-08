@@ -1,11 +1,10 @@
 package net.consler.catthebuilder.build;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
-import android.widget.Toast;
 import com.android.apksig.ApkSigner;
 import com.android.apksig.ApkSigner.SignerConfig;
+import net.consler.catthebuilder.exception.BuildException;
+import net.consler.catthebuilder.util.ErrorHandlerUtil;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.io.File;
@@ -33,6 +32,10 @@ public class Signer
             {
                 ks.load(in, keystorePassword.toCharArray());
             }
+            catch (Exception e)
+            {
+                throw new BuildException(e.getMessage());
+            }
             PrivateKey privateKey = (PrivateKey) ks.getKey(keyAlias, keyPassword.toCharArray());
             Certificate[] certChain = ks.getCertificateChain(keyAlias);
             List<X509Certificate> x509Certs = Arrays.stream(certChain).map(cert -> (X509Certificate) cert).collect(Collectors.toList());
@@ -53,14 +56,9 @@ public class Signer
         }
         catch (Exception e)
         {
-            Toast.makeText(context, "Something went wrong while signing the APK", Toast.LENGTH_SHORT).show();
-            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("label", e.getMessage());
-            clipboard.setPrimaryClip(clip);
-            throw new RuntimeException(e);
+            ErrorHandlerUtil.handle(context, e);
+            throw new BuildException(e.getMessage());
         }
-
-
 
     }
 }

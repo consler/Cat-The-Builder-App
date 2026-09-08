@@ -24,6 +24,7 @@ import net.consler.catthebuilder.button.FilePickerButton;
 import net.consler.catthebuilder.helper.LanguageHelper;
 import net.consler.catthebuilder.helper.LocaleHelper;
 import net.consler.catthebuilder.helper.VersionHelper;
+import net.consler.catthebuilder.util.ErrorHandlerUtil;
 
 import java.io.File;
 import java.io.OutputStream;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle saved_instance_state)
     {
+        ErrorHandlerUtil.install(getApplicationContext());
         VersionHelper.check_version(this);
 
         super.onCreate(saved_instance_state);
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             }
             catch (Exception e)
             {
-                throw new RuntimeException(e);
+                ErrorHandlerUtil.handle(this, e);
             }
             finally
             {
@@ -126,10 +128,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void attachBaseContext(Context newBase)
     {
-        Log.d("A", "called");
         Locale chosen = Locale.forLanguageTag(LanguageHelper.getLanguage(newBase));
-        Log.d("a", LanguageHelper.getLanguage(newBase));
-        Log.d("a", chosen.getLanguage());
         super.attachBaseContext(LocaleHelper.wrapLocale(newBase, chosen));
     }
 

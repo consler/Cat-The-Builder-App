@@ -24,7 +24,7 @@ public class ThemeHelper
     public static int getPrimaryColor(Context context)
     {
         TypedValue typed_value = new TypedValue();
-        context.getTheme().resolveAttribute(com.google.android.material.R.attr.colorPrimary, typed_value, true);
+        context.getTheme().resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typed_value, true);
         int color;
         if (typed_value.resourceId != 0)
         {

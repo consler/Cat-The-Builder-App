@@ -3,6 +3,7 @@ package net.consler.catthebuilder.helper;
 import android.content.Context;
 import android.os.LocaleList;
 import android.util.Log;
+import net.consler.catthebuilder.util.ErrorHandlerUtil;
 
 import java.io.File;
 import java.io.FileReader;
@@ -19,14 +20,10 @@ public class LanguageHelper
 
         try
         {
-            if(! language_savefile.exists())
-            {
-                language_savefile.createNewFile();
-            }
+            if(! language_savefile.exists()) language_savefile.createNewFile();
 
             FileWriter fw = new FileWriter(language_savefile);
             fw.write(language.toLanguageTag());
-            Log.d("aaa", getSystemLanguage());
             fw.close();
         }
         catch (IOException e)
@@ -56,6 +53,7 @@ public class LanguageHelper
         }
         catch (IOException e)
         {
+            ErrorHandlerUtil.handle(context, e);
             throw new RuntimeException(e);
         }
     }

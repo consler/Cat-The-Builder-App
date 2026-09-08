@@ -3,6 +3,8 @@ package net.consler.catthebuilder.build;
 import android.content.Context;
 import android.util.Log;
 import net.consler.catthebuilder.button.FilePickerButton;
+import net.consler.catthebuilder.exception.BuildException;
+import net.consler.catthebuilder.util.ErrorHandlerUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +29,8 @@ public class Icon
         }
         catch (IOException e)
         {
-            throw new RuntimeException(e);
+            ErrorHandlerUtil.handle(context, e);
+            throw new BuildException(e.getMessage());
         }
 
         return true;
@@ -57,8 +60,9 @@ public class Icon
         }
         else
         {
-            Log.wtf("Icon", "Has someone tampered with CATGAME??");
-            throw new RuntimeException();
+            Log.wtf("Icon", "Who tampered with CATGAME??");
+            ErrorHandlerUtil.handle(context, new BuildException("Failed to find existing icon file"));
+            throw new BuildException("Failed to find existing icon file");
         }
 
         return old_icon_foreground;
@@ -87,8 +91,9 @@ public class Icon
         }
         else
         {
-            Log.wtf("Icon", "Has someone tampered with CATGAME??");
-            throw new RuntimeException();
+            Log.wtf("Icon", "Who tampered with CATGAME??");
+            ErrorHandlerUtil.handle(context, new BuildException("Failed to find existing icon file"));
+            throw new BuildException("Failed to find existing icon file");
         }
         return old_icon;
     }

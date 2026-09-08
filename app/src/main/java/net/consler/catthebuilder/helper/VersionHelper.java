@@ -40,10 +40,8 @@ public class VersionHelper
         }
         else
         {
-            try
+            try(FileReader fr = new FileReader(version_file))
             {
-                FileReader fr = new FileReader(version_file);
-
                 StringBuilder output = new StringBuilder();
                 int character;
                 while((character = fr.read()) != -1)

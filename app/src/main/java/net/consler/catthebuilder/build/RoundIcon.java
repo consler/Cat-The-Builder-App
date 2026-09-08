@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.*;
 import com.reandroid.archive.io.FileChannelOutputStream;
 import net.consler.catthebuilder.button.FilePickerButton;
+import net.consler.catthebuilder.exception.BuildException;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,16 +24,15 @@ public class RoundIcon
         if (auto_resize)
         {
             File round_icon = new File(context.getCacheDir(), "round_icon.png");
-            try
+            try (FileOutputStream fos = new FileOutputStream(round_icon))
             {
                 Bitmap round_icon_bitmap = createCircularImage(icon);
-                FileOutputStream fos = new FileOutputStream(round_icon);
                 FileChannelOutputStream fcos = new FileChannelOutputStream(fos.getChannel());
                 round_icon_bitmap.compress(Bitmap.CompressFormat.PNG, 100, fcos);
             }
             catch (IOException e)
             {
-                throw new RuntimeException(e);
+                throw new BuildException(e.getMessage());
             }
 
             try
@@ -40,7 +41,7 @@ public class RoundIcon
             }
             catch (IOException e)
             {
-                throw new RuntimeException(e);
+                throw new BuildException(e.getMessage());
             }
         }
         else
@@ -51,7 +52,7 @@ public class RoundIcon
             }
             catch (IOException e)
             {
-                throw new RuntimeException(e);
+                throw new BuildException(e.getMessage());
             }
         }
 
@@ -61,7 +62,7 @@ public class RoundIcon
     {
         Bitmap originalImage = BitmapFactory.decodeFile(round_icon.getPath());
 
-        if (originalImage == null) throw new RuntimeException("Something went wrong");
+        if (originalImage == null) throw new BuildException("Failed to make icon round");
 
         int diameter = 512;
 

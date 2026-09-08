@@ -73,7 +73,14 @@ public class FilePickerButton implements View.OnClickListener // wrote this a wh
     {
         id = view.getId();
 
-        pickLauncher.launch(new String[]{"*/*"});
+        if(id == R.id.file_picker_button)
+        {
+            pickLauncher.launch(new String[]{"application/octet-stream", "application/zip", "application/x-zip-compressed", "application/x-catrobat"});
+        }
+        else if(id == R.id.icon_button)
+        {
+            pickLauncher.launch(new String[]{"image/jpeg", "image/png", "image/webp"});
+        }
     }
 
     private static File icon = null;

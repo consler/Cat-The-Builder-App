@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'net.consler.catthebuilder'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
-        applicationId "my.consler.net.consler.catthebuilder"
+        applicationId "net.consler.catthebuilder"
         minSdk 29
-        targetSdk 35
-        versionCode 8
-        versionName "v0.6"
+        targetSdk 36
+        versionCode 1
+        versionName "v1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

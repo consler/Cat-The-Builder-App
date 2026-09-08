@@ -1,5 +1,6 @@
 package net.consler.catthebuilder.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import java.util.Locale;
 
 public class OptionsActivity extends AppCompatActivity
 {
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle saved_instance_state)
     {

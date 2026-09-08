@@ -6,8 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
-import android.widget.Toast;
 import androidx.core.content.FileProvider;
+import net.consler.catthebuilder.exception.ExportException;
 
 import java.io.*;
 
@@ -32,8 +32,8 @@ public class ExporterUtil
         }
         catch (Exception e)
         {
-            Toast.makeText(context, "Something went wrong while exporting", Toast.LENGTH_SHORT).show();
-            throw new RuntimeException(e);
+            ErrorHandlerUtil.handle(context, e);
+            throw new ExportException(e.getMessage());
         }
 
     }

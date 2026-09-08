@@ -1,12 +1,13 @@
 package net.consler.catthebuilder.util;
 
 import android.util.Log;
+import net.consler.catthebuilder.exception.BuildException;
 
 import java.io.*;
 import java.nio.file.*;
 import java.util.zip.*;
 
-public class ZipUtil // this is ai generated
+public class ZipUtil
 {
 
     private static final String TAG = "Zip";
@@ -39,7 +40,7 @@ public class ZipUtil // this is ai generated
         catch (UncheckedIOException | IOException e)
         {
             Log.e(TAG, "zipFolderContentsStored failed");
-            throw new RuntimeException(e);
+            throw new BuildException(e.getMessage());
         }
         Log.d(TAG, "zipFolderContentsStored completed");
     }
