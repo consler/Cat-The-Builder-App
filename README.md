@@ -53,7 +53,6 @@ App to build a .apk from .catrobat(pocket code projects)
 * Cat The Builder is NOT affiliated with Pocket Code.
 * Cat The Builder is made for only Pocket Code projects.
 * Cat The Builder is developed by just one person, making the development process quite slow.
-* The project is close to a 1.0 release, and any bugs found should be reported.
 * If you are fluent in a language that's not English, Ukrainian, Russian, or German and are willing to help add it to Cat The Builder, please get in touch with me.
 
 ## License
