@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "my.consler.catthebuilder",
+  "applicationId": "net.consler.catthebuilder",
   "variantName": "release",
   "elements": [
     {

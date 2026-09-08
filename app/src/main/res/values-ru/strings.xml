@@ -14,7 +14,7 @@
     <string name="apk_installed">Приложение установлено!</string>
     <string name="imported_icon">Иконка импортирована</string>
     <string name="catrobat_imported">.catrobat импортирован</string>
-    <string name="invalid_icon">Недействитильная иконка выбрана</string>
+    <string name="invalid_icon">Недействитильная иконка выбрана!</string>
     <string name="app_name_empty">Пустое имя!</string>
     <string name="package_empty">Пустой пакет!</string>
     <string name="version_empty">Пустая версия!</string>

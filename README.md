@@ -17,19 +17,19 @@ App to build a .apk from .catrobat(pocket code projects)
 ## Feature comparison
 | Features               | Cat The Builder | CBuilder | Manual APK editing |
 |------------------------|-----------------|----------|--------------------|
-| Newest version support | ✅               | ❌        | ✅                  |
-| Open source  client    | ✅               | ❌        | 🤷🏽‍♂️            |
-| Fast                   | ✅               | ✅        | ❌                  |
-| Easy to use            | ✅               | ✅        | ❌                  |
-| Maintained             | ✅               | ❌        | ✅                  |
-| Change app name        | ✅               | ✅        | ✅                  |
-| Change package         | ✅               | ✅        | ✅                  |
-| Change version name    | ✅               | ✅        | ✅                  |
-| Change version code    | ✅               | ❌        | ✅                  |
-| Change icon            | ✅               | ✅        | ✅                  |
-| Use adaptive icon      | ✅               | ❌        | ❌                  |
-| Auto resize round icon | ✅               | ❌        | ❌                  |
-## TO DO: 
+| Newest version support | ✅              | ❌       | ✅                 |
+| Open source  client    | ✅              | ❌       | 🤷🏽‍♂️                 |
+| Fast                   | ✅              | ✅       | ❌                 |
+| Easy to use            | ✅              | ✅       | ❌                 |
+| Maintained             | ✅              | ❌       | ✅                 |
+| Change app name        | ✅              | ✅       | ✅                 |
+| Change package         | ✅              | ✅       | ✅                 |
+| Change version name    | ✅              | ✅       | ✅                 |
+| Change version code    | ✅              | ❌       | ✅                 |
+| Change icon            | ✅              | ✅       | ✅                 |
+| Use adaptive icon      | ✅              | ❌       | ❌                 |
+| Auto resize round icon | ✅              | ❌       | ❌                 |
+## TO DO:
 * **Optimize**
 * **More languages**
 * **Theme settings**
@@ -49,12 +49,12 @@ App to build a .apk from .catrobat(pocket code projects)
 * It uses ARSCLib to change the app name, package name, version name, and version code.
 * Finally, it signs the apk and exports it onto your phone's storage.
 
-## Note 
+## Note
 * Cat The Builder is NOT affiliated with Pocket Code.
 * Cat The Builder is made for only Pocket Code projects.
 * Cat The Builder is developed by just one person, making the development process quite slow.
 * The project is close to a 1.0 release, and any bugs found should be reported.
-* If you are fluent in a language that's not English, Ukrainian, Russian or German and are willing to help to add it to Cat The Builder, please contact me.
+* If you are fluent in a language that's not English, Ukrainian, Russian, or German and are willing to help add it to Cat The Builder, please get in touch with me.
 
 ## License
 ![GNU AGPL v3.0](https://img.shields.io/github/license/consler/Cat-The-Builder-App)

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'my.consler.catthebuilder'
+    namespace 'net.consler.catthebuilder'
     compileSdk 35
 
     defaultConfig {
-        applicationId "my.consler.catthebuilder"
+        applicationId "my.consler.net.consler.catthebuilder"
         minSdk 29
         targetSdk 35
         versionCode 8

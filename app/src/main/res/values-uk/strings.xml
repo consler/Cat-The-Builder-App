@@ -26,7 +26,7 @@
     <string name="invalid_package">Недійсний пакет!</string>
     <string name="advanced_build_options_closed">> Додаткові налаштування будівлі</string>
     <string name="advanced_build_options_open">v Додаткові налаштування будівлі</string>
-    <string name="debuggable">З можливостю налагодження</string>
+    <string name="debuggable">Можливість налагодження</string>
     <string name="custom_round_icon">Використовувати власну круглу піктограму</string>
     <string name="auto_resize_round_icon">Автоматично змінити розмір круглої іконки</string>
     <string name="use_adaptive_icon">Використовувати adaptive icon</string>

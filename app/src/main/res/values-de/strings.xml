@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Cat Der Baumeister</string>
+    <string name="your_app_name">Dein App Name</string>
+    <string name="your_package_name">Dein Paket Name(z.b. meine.dummy.app)</string>
+    <string name="your_version">Deine App Version(z.b. v1.0.5)</string>
+    <string name="your_icon">Dein Icon</string>
+    <string name="your_catrobat">Deine .catrobat Datei</string>
+    <string name="build_app">App erstellen</string>
+    <string name="version_code">Deine Version Nummer(muss eine ganze Zahl sein!)</string>
+    <string name="copying_assets_to_cache">Ressourcen werden in den Cache kopiert...</string>
+    <string name="building_apk">App wird erstellt...</string>
+    <string name="updating_android_manifest">AndroidManifest wird aktualisiert...</string>
+    <string name="apk_installed">App installiert!</string>
+    <string name="imported_icon">Icon importiert!</string>
+    <string name="catrobat_imported">.catrobat importiert</string>
+    <string name="invalid_icon">Ungültiges Icon ausgewählt!</string>
+    <string name="app_name_empty">App name ist nicht ausgefüllt!</string>
+    <string name="package_empty">Paket ist nicht ausgefüllt!</string>
+    <string name="version_empty">Version ist nicht ausgefüllt!</string>
+    <string name="version_code_empty">Versionscode ist nicht ausgefüllt!</string>
+    <string name="catrobat_not_chosen">.catrobat wurde nicht ausgewählt!</string>
+    <string name="icon_not_chosen">Icon ist nicht ausgefüllt!</string>
+    <string name="invalid_version_code">Ungültige Version Nummer!</string>
+    <string name="file_chosen_not_catrobat">Ausgewählte Datei ist nicht eine .catrobat!</string>
+    <string name="invalid_package">Ungültiges Paket!</string>
+    <string name="advanced_build_options_closed">> Erweiterte Erstell optionen</string>
+    <string name="advanced_build_options_open">v Erweiterte Erstell optionen</string>
+    <string name="debuggable">Debugfähig</string>
+    <string name="custom_round_icon">Rundes Icon verwenden</string>
+    <string name="auto_resize_round_icon">Rundes Icon automatisch skalieren</string>
+    <string name="use_adaptive_icon">Adaptives Icon verwenden</string>
+    <string name="language_is">"Sprache: "</string>
+    <string name="credits">Kredite</string>
+
+</resources>
