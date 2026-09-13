@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import net.consler.catthebuilder.util.FirebaseWarningHandler;
 import net.consler.catthebuilder.R;
 import net.consler.catthebuilder.build.Build;
 import net.consler.catthebuilder.button.AdvancedBuildOptionsButton;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle saved_instance_state)
     {
         ErrorHandlerUtil.install(getApplicationContext());
-        VersionHelper.check_version(this);
+        VersionHelper.checkVersion(this);
 
         super.onCreate(saved_instance_state);
         EdgeToEdge.enable(this);
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity
 
         Button advanced_build_button = findViewById(R.id.advanced_build_button);
         advanced_build_button.setOnClickListener(new AdvancedBuildOptionsButton(this));
+
+        FirebaseWarningHandler.checkWarnings(this);
 
         ((CheckBox) findViewById(R.id.auto_resizable_round_icon_option)).setChecked(true);
         ((CheckBox) findViewById(R.id.use_adaptive_icon_option)).setChecked(true);

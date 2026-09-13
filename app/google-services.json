@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "773727943495",
+    "project_id": "catthebuilder-consler",
+    "storage_bucket": "catthebuilder-consler.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773727943495:android:e0b4adf868032f401caa62",
+        "android_client_info": {
+          "package_name": "net.consler.catthebuilder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfraqks5B4uFO-QPcFPhLyDj9E7ZOvjwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

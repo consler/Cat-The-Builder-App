@@ -9,7 +9,7 @@ import java.io.*;
 
 public class VersionHelper
 {
-    public static void check_version(Context context)
+    public static void checkVersion(Context context)
     {
         int version_code = getVersionCode(context);
 
@@ -50,8 +50,6 @@ public class VersionHelper
                 }
                 if(!output.toString().equals(String.valueOf(version_code)))
                 {
-                    Log.d("VersionCheck", "Old version detected: " + output);
-
                     clearApplicationData(context);
                 }
             }
@@ -62,7 +60,7 @@ public class VersionHelper
         }
     }
 
-    private static int getVersionCode(Context context)
+    public static int getVersionCode(Context context)
     {
         try
         {
