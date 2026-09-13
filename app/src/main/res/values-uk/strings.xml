@@ -32,4 +32,11 @@
     <string name="use_adaptive_icon">Використовувати adaptive icon</string>
     <string name="language_is">"Мова: "</string>
     <string name="credits">Кредити</string>
+    <string name="warning">Увага</string>
+    <string name="security_warning">Попередження щодо безпеки!</string>
+    <string name="quit_right_now">Вийти прямо зараз!!!</string>
+    <string name="new_update_available">Доступне нове оновлення!</string>
+    <string name="update">Оновити</string>
+    <string name="i_dont_care">Мені байдуже</string>
+    <string name="okay">Добре</string>
 </resources>

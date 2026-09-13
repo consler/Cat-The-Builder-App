@@ -32,4 +32,11 @@
     <string name="use_adaptive_icon">Использовать adaptive icon</string>
     <string name="language_is">"Язык: "</string>
     <string name="credits">Кредиты</string>
+    <string name="warning">Внимание</string>
+    <string name="security_warning">Предупреждение о безопасности!</string>
+    <string name="quit_right_now">Выйти прямо сейчас!!!</string>
+    <string name="new_update_available">Доступно новое обновление!</string>
+    <string name="update">Обновить</string>
+    <string name="i_dont_care">Мне всё равно</string>
+    <string name="okay">Хорошо</string>
 </resources>

@@ -31,5 +31,12 @@
     <string name="use_adaptive_icon">Adaptives Icon verwenden</string>
     <string name="language_is">"Sprache: "</string>
     <string name="credits">Kredite</string>
+    <string name="warning">Achtung</string>
+    <string name="security_warning">Sicherheitswarnung!</string>
+    <string name="quit_right_now">Beende sie sofort!!!</string>
+    <string name="new_update_available">Neues Update verfügbar!</string>
+    <string name="update">Updaten</string>
+    <string name="i_dont_care">Das ist mir egal</string>
+    <string name="okay">Okay</string>
 
 </resources>

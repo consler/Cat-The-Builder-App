@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import net.consler.catthebuilder.R;
 import net.consler.catthebuilder.helper.VersionHelper;
 
 public final class FirebaseWarningHandler
@@ -59,18 +60,18 @@ public final class FirebaseWarningHandler
 
         if ("security-warning".equals(warning.type))
         {
-            title = "Security Warning!";
-            positiveButton = "Quit right now";
+            title = activity.getString(R.string.security_warning);
+            positiveButton = activity.getString(R.string.quit_right_now);
         }
         else if ("new-update".equals(warning.type))
         {
-            title = "New Update Available!";
-            positiveButton = "Update";
+            title = activity.getString(R.string.new_update_available);
+            positiveButton = activity.getString(R.string.update);
         }
         else
         {
-            title = "Warning!";
-            positiveButton = "Okay!";
+            title = activity.getString(R.string.warning);
+            positiveButton = activity.getString(R.string.okay);
         }
 
         new AlertDialog.Builder(activity)
@@ -81,7 +82,7 @@ public final class FirebaseWarningHandler
                     dialog.dismiss();
                     performAction(activity, warning);
                 })
-                .setNegativeButton("I don't care...", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(activity.getString(R.string.i_dont_care), (dialog, which) -> dialog.dismiss())
                 .setCancelable(false)
                 .show();
     }
