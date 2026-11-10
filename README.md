@@ -37,7 +37,7 @@ App to build a .apk from .catrobat(pocket code projects)
 ## Contact me
 * Telegram: @onsler
 * Discord: @consler
-* Email: consler2000@gmail.com
+* Email: contact@consler.net
 
 ## How it works
 * When you press "Build", the app copies a folder called CATGAME from the assets folder to the cache directory.
